@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.mateusz.workoutcustomer">
+          package="com.bvbsaha.fitnesskursach">
           <uses-permission android:name="android.permission.INTERNET"/>
           <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
           <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -15,31 +15,31 @@
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
 
-        <activity android:name=".viewer.ExerciseViewActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.viewer.ExerciseViewActivity">
         </activity>
-        <activity android:name=".viewer.PauseActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.viewer.PauseActivity">
         </activity>
-        <activity android:name=".viewer.RepeatViewerActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.viewer.RepeatViewerActivity">
         </activity>
-        <activity android:name=".viewer.TimeViewerActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.viewer.TimeViewerActivity">
         </activity>
-        <activity android:name=".viewer.StartActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.viewer.StartActivity">
         </activity>
-        <activity android:name=".creator.RepeatActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.creator.RepeatActivity">
         </activity>
-        <activity android:name=".creator.TimeActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.creator.TimeActivity">
         </activity>
-        <activity android:name=".creator.ExerciseActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.creator.ExerciseActivity">
         </activity>
-        <activity android:name=".viewer.ViewActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.viewer.ViewActivity">
         </activity>
         <activity android:name=".menu.ViewWorkout">
         </activity>
-        <activity android:name=".creator.SetTitleActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.creator.SetTitleActivity">
         </activity>
-        <activity android:name=".menu.MenuActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.menu.MenuActivity">
         </activity>
-        <activity android:name=".menu.MainActivity"
+        <activity android:name="com.bvbsaha.fitnesskursach.menu.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
