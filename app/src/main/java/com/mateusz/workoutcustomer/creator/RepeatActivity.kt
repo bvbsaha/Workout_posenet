@@ -119,9 +119,9 @@ class RepeatActivity : AppCompatActivity() {
             Exercise(
                 id
                 , intent.getIntExtra(SetTitleActivity.ID, 0),
-                intent.getStringExtra(ExerciseActivity.TITLE),
-                intent.getStringExtra(ExerciseActivity.DESCRIPTION),
-                intent.getStringExtra(ExerciseActivity.INSTRUCTION),
+                intent.getStringExtra(ExerciseActivity.TITLE).toString(),
+                intent.getStringExtra(ExerciseActivity.DESCRIPTION).toString(),
+                intent.getStringExtra(ExerciseActivity.INSTRUCTION).toString(),
                 series.text.toString().toInt(),
                 false,
                 0,

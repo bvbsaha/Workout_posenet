@@ -28,7 +28,7 @@ class WeatherFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentHistoryBinding.inflate(inflater,container, false)
-        requestWeatherData("Madrid")
+        requestWeatherData("Minsk")
         updateCurrent()
         return binding.root
     }
