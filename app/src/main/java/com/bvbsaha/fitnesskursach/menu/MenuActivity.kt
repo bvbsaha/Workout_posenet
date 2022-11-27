@@ -77,7 +77,7 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
      * Function loadFragment start new Fragment in the part of the Layout
      */
 
-    fun loadFragment(fragment: Fragment?): Boolean {
+   private fun loadFragment(fragment: Fragment?): Boolean {
         if (fragment != null) {
             supportFragmentManager
                 .beginTransaction()

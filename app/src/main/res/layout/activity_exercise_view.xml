@@ -98,16 +98,20 @@
             app:layout_constraintHorizontal_bias="0.0"
             android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/timeOrRepeatOutput"
             style="@style/TextViewCreator"/>
+
     <Button
-            android:text="@string/delete_exercise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button11" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp" app:layout_constraintTop_toBottomOf="@+id/pauseExercise"
-            app:layout_constraintHorizontal_bias="1.0"
-            style="@style/ButtonCreator"
-            android:padding="5dp"
-            android:onClick="deleteExercise"
-    />
+        android:id="@+id/button11"
+        style="@style/ButtonCreator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="deleteExercise"
+        android:padding="5dp"
+        android:text="@string/delete_exercise"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pauseExercise" />
 </androidx.constraintlayout.widget.ConstraintLayout>

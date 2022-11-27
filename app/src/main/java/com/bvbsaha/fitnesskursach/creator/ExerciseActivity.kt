@@ -21,15 +21,15 @@ import com.bvbsaha.fitnesskursach.R
  * @property TITLE is address title new exercise where new intent put data. And where next activity can find data from this activity
  * @property DESCRIPTION is address description new exercise where new intent put data. And where next activity can find data from this activity
  * @property INSTRUCTION is address instruction new exercise where new intent put data. And where next activity can find data from this activity
- * @author Mateusz Karłowski
+
  */
 
 class ExerciseActivity : AppCompatActivity() {
 
-    lateinit var radioGroup: RadioGroup
-    lateinit var title: EditText
-    lateinit var description: EditText
-    lateinit var instruction: EditText
+    lateinit var radioGroup: RadioGroup //Кнопки для выбора варианта выполнения упражнений
+    lateinit var title: EditText        //Ввод названия нового упражнения
+    lateinit var description: EditText  //Ввод сложности упражнения
+    lateinit var instruction: EditText  //Ввод инструкции к выполнению упражнения
 
     /**
      * it finds layout elements and stores to variable

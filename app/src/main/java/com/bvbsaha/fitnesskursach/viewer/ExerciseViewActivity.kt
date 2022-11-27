@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.menu.MainActivity
 
@@ -63,6 +64,9 @@ class ExerciseViewActivity : AppCompatActivity() {
             alert.show()
             return@setOnLongClickListener true
         }
+
+
+
         var description : TextView = findViewById(R.id.descriptionExercise)
         description.text = exercise.description
         description.setOnLongClickListener{
@@ -222,6 +226,9 @@ class ExerciseViewActivity : AppCompatActivity() {
                 return@setOnLongClickListener true
             }
         }
+
+
+
         var pause : TextView = findViewById(R.id.pauseExercise)
         pause.text = "${exercise.pause} ${exercise.pauseFormat}"
         pause.setOnLongClickListener{
@@ -264,5 +271,6 @@ class ExerciseViewActivity : AppCompatActivity() {
 
     fun deleteExercise(view: View) {
         MainActivity.workoutViewModel.deleteExerciseById(id)
+        finish()
     }
 }

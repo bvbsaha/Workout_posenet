@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.database.Exercise
 
@@ -21,7 +22,7 @@ import com.bvbsaha.fitnesskursach.database.Exercise
 
 
 class ExerciseAdapter(context: Context) : RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
-
+    private lateinit var cardView: CardView
     private var mInflater = LayoutInflater.from(context)
     lateinit var mExercise: List<Exercise>
     var id: Int = 0
@@ -32,6 +33,7 @@ class ExerciseAdapter(context: Context) : RecyclerView.Adapter<ExerciseAdapter.E
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ExerciseViewHolder {
         val itemView = mInflater.inflate(R.layout.exercise_item, parent, false)
+        cardView = itemView.findViewById(R.id.cardView)
         return ExerciseViewHolder(itemView, this)
     }
 
@@ -102,6 +104,7 @@ class ExerciseAdapter(context: Context) : RecyclerView.Adapter<ExerciseAdapter.E
 
         override fun onClick(view: View) {
             var intentView: Intent = Intent(itemView.context, ExerciseViewActivity::class.java)
+            intentView.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             intentView.putExtra(ID, id)
             itemView.context.startActivity(intentView)
 
