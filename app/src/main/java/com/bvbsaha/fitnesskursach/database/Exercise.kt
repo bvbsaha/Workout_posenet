@@ -1,13 +1,7 @@
 package com.bvbsaha.fitnesskursach.database
-
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
-/**
- * It is data class Exercise
- * @author Mateusz Karłowski
- */
 
 @Entity(tableName = "exercise_table")
 data class Exercise(

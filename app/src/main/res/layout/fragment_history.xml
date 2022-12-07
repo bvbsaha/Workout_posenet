@@ -31,7 +31,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
-        android:backgroundTint="@color/card_Blue_bg"
+        android:backgroundTint="#BCB8B8"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,16 +55,18 @@
 
             <ImageView
                 android:id="@+id/imageWeather"
-                android:layout_width="113dp"
-                android:layout_height="84dp"
+                android:layout_width="152dp"
+                android:layout_height="130dp"
                 android:layout_marginStart="192dp"
-                android:layout_marginTop="80dp"
                 android:layout_marginEnd="192dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/googleg_standard_color_18" />
+                app:layout_constraintVertical_bias="0.2"
+                app:srcCompat="@drawable/googleg_standard_color_18"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/tvCity"
@@ -82,23 +84,14 @@
                 android:id="@+id/tvCurrentTemp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="32dp"
                 android:text="20 C"
                 android:textColor="#FFFFFF"
                 android:textSize="80sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.475"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvCity" />
-
-            <ImageButton
-                android:id="@+id/ibSync"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:background="@null"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvCurrentTemp"
-                app:srcCompat="@android:drawable/stat_notify_sync" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

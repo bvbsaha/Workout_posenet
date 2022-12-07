@@ -6,15 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.bvbsaha.fitnesskursach.R
+import com.bvbsaha.fitnesskursach.database.Exercise
+import com.bvbsaha.fitnesskursach.database.Workout
 import com.bvbsaha.fitnesskursach.database.WorkoutViewModel
 
 /**
  * MainActivity is splash screen
  * It shows  on 0.7 seconds layout activity_welcom and switch to MenuActivity
- * @author Mateusz Karłowski
- *
- * @property workoutViewModel is object class WorkoutViewModel
- * @see WorkoutViewModel
  */
 
 
@@ -32,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         Handler().postDelayed({
             val homeIntent = Intent(this@MainActivity, MenuActivity::class.java)
             startActivity(homeIntent)
+            MainActivity.workoutViewModel.insert(Workout(80,"Руки","Сложно"))
+            MainActivity.workoutViewModel.insert(Exercise(80,80,"Dsgsggsgs","Ssggcs","sgddsdgdsg",4,true,13,"seconds",0,5,"seconds"))
             finish()
         }, 700)
     }

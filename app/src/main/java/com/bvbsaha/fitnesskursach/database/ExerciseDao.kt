@@ -6,48 +6,33 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
-/**
- * It is interface with query to database
- * @author Mateusz Karłowski
- */
 
 @Dao
 interface ExerciseDao {
 
-    /**
-     * Insert new exercise
-     */
+   //Запись нового упражнения
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(exercise: Exercise)
 
-    /**
-     * Delete all exercise
-     */
+    //Получение упражнения
+    @Query("SELECT * from exercise_table ORDER BY _id, title, description, instruction, series, timeCheck, time, timeFormat, repeat, pause, pauseFormat ASC")
+    fun getAllExercise(): LiveData<List<Exercise>>
 
-    @Query("DELETE FROM exercise_table")
-    fun deleteAll()
-
-    /**
-     * Delete by workout id
-     */
-
-    @Query("DELETE FROM exercise_table WHERE workoutId LIKE :index")
-    fun deleteByWorkoutId(index: Int)
-
-    /**
-     * Delete by exercise id
-     */
+    //Удаление упражнения по id
 
     @Query("DELETE FROM exercise_table WHERE _id LIKE :index")
     fun deleteByExerciseId(index: Int)
 
-    /**
-     * Get all exercise
-     */
+    //Удаление упражнения по id тренировки
 
-    @Query("SELECT * from exercise_table ORDER BY _id, title, description, instruction, series, timeCheck, time, timeFormat, repeat, pause, pauseFormat ASC")
-    fun getAllExercise(): LiveData<List<Exercise>>
+    @Query("DELETE FROM exercise_table WHERE workoutId LIKE :index")
+    fun deleteByWorkoutId(index: Int)
+
+    //Удаление упражнения
+
+    @Query("DELETE FROM exercise_table")
+    fun deleteAll()
 
     @Query("UPDATE exercise_table SET title=:title WHERE _id LIKE :ID")
     fun updateExerciseTitle(title: String, ID: Int)

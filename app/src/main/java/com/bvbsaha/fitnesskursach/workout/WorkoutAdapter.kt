@@ -1,5 +1,6 @@
-package com.bvbsaha.fitnesskursach.menu
+package com.bvbsaha.fitnesskursach.workout
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import androidx.cardview.widget.CardView
@@ -10,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.database.Workout
-import com.bvbsaha.fitnesskursach.viewer.ViewActivity
+import com.bvbsaha.fitnesskursach.workout.WorkoutViewActivity
 
 /**
  * class WorkoutAdapter extends from RecycleView.Adapter and it is for RecycleView
@@ -18,7 +19,6 @@ import com.bvbsaha.fitnesskursach.viewer.ViewActivity
  *  @see Workout
  *  @property id stores id clicked item
  *  @property ID is string which stores id address. This address is for intent can put ID. This property is companion object because ViewActivity must have address for read data
- *  @author Mateusz Karłowski
  */
 
 class WorkoutAdapter(context: Context) : RecyclerView.Adapter<WorkoutAdapter.WorkoutViewHolder>() {
@@ -26,6 +26,7 @@ class WorkoutAdapter(context: Context) : RecyclerView.Adapter<WorkoutAdapter.Wor
     private lateinit var mWorkout: List<Workout>
     private lateinit var cardView: CardView
     var id: Int = 0
+
 
     /**
      * onCreateViewHolder find CardView in layout and return items look like R.layout.workout_item with data
@@ -35,18 +36,22 @@ class WorkoutAdapter(context: Context) : RecyclerView.Adapter<WorkoutAdapter.Wor
         val itemView = mInflater.inflate(R.layout.workout_item, parent, false)
         cardView = itemView.findViewById(R.id.cardView)
         return WorkoutViewHolder(itemView, this)
+
     }
 
     /**
      * onBindViewHolder set data from mWorkout to item
      */
 
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: WorkoutViewHolder, positon: Int) {
         var currentStinrg = mWorkout[positon].title
+        holder.id = mWorkout[positon].id
         holder.mWorkoutTitle.text = currentStinrg
         currentStinrg = mWorkout[positon].description
         holder.mWorkoutDescription.text = currentStinrg
-        holder.id = mWorkout[positon].id
+
+
 
     }
 
@@ -86,9 +91,10 @@ class WorkoutAdapter(context: Context) : RecyclerView.Adapter<WorkoutAdapter.Wor
          */
 
         override fun onClick(view: View) {
-            var intentView = Intent(itemView.context, ViewActivity::class.java)
+            var intentView = Intent(itemView.context, WorkoutViewActivity::class.java)
             intentView.putExtra(ID, id)
             itemView.context.startActivity(intentView)
+
         }
 
 
@@ -105,6 +111,6 @@ class WorkoutAdapter(context: Context) : RecyclerView.Adapter<WorkoutAdapter.Wor
     }
 
     companion object {
-        var ID: String = "com.mateusz.workoutcustomre.menu.id"
+        var ID: String = "com.bvbsaha.fitnesskursach.menu.id"
     }
 }

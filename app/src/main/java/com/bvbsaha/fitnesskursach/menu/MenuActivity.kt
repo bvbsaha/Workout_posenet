@@ -8,11 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
 import com.bvbsaha.fitnesskursach.R
-import com.bvbsaha.fitnesskursach.creator.SetTitleActivity
+import com.bvbsaha.fitnesskursach.workout.CreateWorkoutActivity
+import com.bvbsaha.fitnesskursach.weather.WeatherFragment
+import com.bvbsaha.fitnesskursach.workout.WorkoutFragment
 
 /**
- * A class MenuActivity is Main Activity in my App
- * @author Mateusz Karłowski
+ * A class MenuActivity is Main Activity in App
  */
 
 
@@ -26,23 +27,26 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     private val newWorkoutActivityRequestCode = 1
     lateinit var fragment: Fragment
 
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.navigation_home -> {
-                fragment = HomeFragment()
-                fab.show()
+                fragment = WorkoutFragment()
+                fab.hide()
             }
             R.id.navigation_history -> {
                 fragment = WeatherFragment()
                 fab.hide()
             }
             R.id.navigation_settings -> {
-                fragment = SettingsFragment()
+                fragment = BmiFragment()
                 fab.hide()
             }
             else -> {
-                fab.show()
-                fragment = HomeFragment()
+                var creatorIntent: Intent = Intent(this, CreateWorkoutActivity::class.java)
+                startActivityForResult(creatorIntent, newWorkoutActivityRequestCode)
+                fab.hide()
+
             }
         }
         return loadFragment(fragment)
@@ -59,12 +63,13 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-        fragment = HomeFragment()
+        fragment = WorkoutFragment()
         loadFragment(fragment)
         fab = findViewById(R.id.floatingActionButton)
+        fab.hide()
         fab.setOnClickListener {
-            if (fragment is HomeFragment) {
-                var creatorIntent: Intent = Intent(this, SetTitleActivity::class.java)
+            if (fragment is WorkoutFragment) {
+                var creatorIntent: Intent = Intent(this, CreateWorkoutActivity::class.java)
                 startActivityForResult(creatorIntent, newWorkoutActivityRequestCode)
             }
         }
@@ -72,6 +77,7 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         navigation.setOnNavigationItemSelectedListener(this)
         supportActionBar?.hide()
     }
+
 
     /**
      * Function loadFragment start new Fragment in the part of the Layout

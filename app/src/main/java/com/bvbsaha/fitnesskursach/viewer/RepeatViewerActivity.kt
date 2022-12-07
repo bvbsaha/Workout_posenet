@@ -12,7 +12,6 @@ import com.bvbsaha.fitnesskursach.database.Exercise
 /**
  * It see exercise with repeat
  * @property exercise is current exercise object
- * @author Mateusz Karłowski
  */
 
 class RepeatViewerActivity : AppCompatActivity() {

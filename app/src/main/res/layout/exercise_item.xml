@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardBackgroundColor="@color/card_Blue_bg"
+    app:cardBackgroundColor="@color/White"
     app:cardCornerRadius="10dp">
 
     <LinearLayout
@@ -25,7 +25,7 @@
                 style="@style/TextViewCreator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#FFFFFF"
+                android:textColor="#090707"
                 android:textSize="30dp" />
 
             <TextView
@@ -33,14 +33,14 @@
                 style="@style/TextViewCreator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#FFFFFF" />
+                android:textColor="#131111" />
 
             <TextView
                 android:id="@+id/detailsExercise"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="viewStart"
-                android:textColor="#FAF8F8" />
+                android:textColor="#070606" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -6,31 +6,21 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
-/**
- * **WorkoutDao** is a class for insert data
- * @author Mateusz Karłowski
- */
 
 @Dao
 interface WorkoutDao {
-    /**
-     * Function **insert** insert data to database
-     */
+
+   //Запись новой тренировки
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(workout: Workout)
 
-    /**
-     * Function **deleteAll** delete all data in database
-     */
+    //Удаление тренировки
 
     @Query("DELETE FROM workout_table")
     fun deleteAll()
 
-    /**
-     * Function **getAllWords** get all words form data
-     * @return return LiveData<List<Workout>> form database
-     */
+    //Получение тренировки
 
     @Query("SELECT * from workout_table ORDER BY _id, title, description ASC")
     fun getAllWorkout(): LiveData<List<Workout>>
@@ -47,4 +37,7 @@ interface WorkoutDao {
 
     @Query("UPDATE workout_table SET description=:description WHERE _id LIKE :ID")
     fun updateWorkoutDescription(description: String, ID: Int)
+
+    @Query("SELECT * FROM workout_table WHERE title LIKE :searchQuery OR description LIKE :searchQuery")
+    fun searchDatabase(searchQuery:String):LiveData<List<Workout>>
 }

@@ -1,4 +1,4 @@
-package com.bvbsaha.fitnesskursach.creator
+package com.bvbsaha.fitnesskursach.workout
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.bvbsaha.fitnesskursach.R
+import com.bvbsaha.fitnesskursach.exercise.CreateExerciseActivity
 import com.bvbsaha.fitnesskursach.database.Workout
 import com.bvbsaha.fitnesskursach.menu.MainActivity
 
@@ -16,18 +17,16 @@ import com.bvbsaha.fitnesskursach.menu.MainActivity
  * @property titleEditText is EditText where user can put data for new workout
  * @property descriptionEditText is EditText where user can put data for new workout
  * @property ID is address title workout id where new intent put data. And where next activity can find data from this activity. Next activity use ID for create new Exercise to this workout
- * @author Mateusz Karłowski
  */
+//Cоздание новых тренирвок
 
-class SetTitleActivity : AppCompatActivity() {
+class CreateWorkoutActivity : AppCompatActivity() {
 
-    lateinit var titleEditText: EditText
-    lateinit var descriptionEditText: EditText
+    lateinit var titleEditText: EditText//название
+    lateinit var descriptionEditText: EditText//описание
 
-    /**
-     *It finds layouts elements and stores to variable
-     */
 
+    //поиск эдементов и сохранение в переменные
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_set_title)
@@ -50,10 +49,11 @@ class SetTitleActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Insert shorter description or title please", Toast.LENGTH_SHORT)
             toast.show()
         } else {
+            //присваивание id тренировке (кол-во элементов списка +1)
             val id = MainActivity.workoutViewModel.allWorkout.value!!.size + 1
             val workout = Workout(id, titleEditText.text.toString(), descriptionEditText.text.toString())
             MainActivity.workoutViewModel.insert(workout)
-            var nextIntent = Intent(this, ExerciseActivity::class.java)
+            var nextIntent = Intent(this, CreateExerciseActivity::class.java)
             nextIntent.putExtra(ID, id)
             startActivity(nextIntent)
             finish()

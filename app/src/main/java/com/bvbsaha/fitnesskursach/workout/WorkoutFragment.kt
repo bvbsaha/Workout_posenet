@@ -1,25 +1,23 @@
-package com.bvbsaha.fitnesskursach.menu
+package com.bvbsaha.fitnesskursach.workout
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.database.WorkoutViewModel
+import com.bvbsaha.fitnesskursach.menu.MainActivity
 
 /** class HomeFragment is for this display layout R.layout.fragment_home
  *  also it reads old data to CardView
  *  @property workoutAdapter is object WorkoutAdapter for RecycleView
  *  @see WorkoutAdapter
- *  @author Mateusz Karłowski
  */
 
-class HomeFragment : Fragment() {
+class WorkoutFragment : Fragment() {
     private lateinit var workoutAdapter: WorkoutAdapter
 
     /**
@@ -35,10 +33,11 @@ class HomeFragment : Fragment() {
             LinearLayoutManager(context)
         MainActivity.workoutViewModel = ViewModelProviders.of(this).get(WorkoutViewModel::class.java)
         workoutAdapter = WorkoutAdapter(this.requireContext())
-        MainActivity.workoutViewModel.allWorkout.observe(this, Observer { words ->
+        MainActivity.workoutViewModel.allWorkout.observe(viewLifecycleOwner, Observer { words ->
             words?.let { workoutAdapter.setList(it) }
         })
         recyclerView.adapter = workoutAdapter
         return view
     }
+
 }

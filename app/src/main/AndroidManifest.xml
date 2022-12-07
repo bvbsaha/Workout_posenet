@@ -8,14 +8,13 @@
     <application
 
             android:allowBackup="true"
-            android:icon="@mipmap/ic_logo"
+            android:icon="@drawable/ic_baseline_sports_gymnastics_24"
             android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_logo_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
 
-        <activity android:name="com.bvbsaha.fitnesskursach.viewer.ExerciseViewActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.exercise.ExerciseViewActivity">
         </activity>
         <activity android:name="com.bvbsaha.fitnesskursach.viewer.PauseActivity">
         </activity>
@@ -29,11 +28,11 @@
         </activity>
         <activity android:name="com.bvbsaha.fitnesskursach.creator.TimeActivity">
         </activity>
-        <activity android:name="com.bvbsaha.fitnesskursach.creator.ExerciseActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.exercise.CreateExerciseActivity">
         </activity>
-        <activity android:name="com.bvbsaha.fitnesskursach.viewer.ViewActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.workout.WorkoutViewActivity">
         </activity>
-        <activity android:name="com.bvbsaha.fitnesskursach.creator.SetTitleActivity">
+        <activity android:name="com.bvbsaha.fitnesskursach.workout.CreateWorkoutActivity">
         </activity>
         <activity android:name="com.bvbsaha.fitnesskursach.menu.MenuActivity">
         </activity>

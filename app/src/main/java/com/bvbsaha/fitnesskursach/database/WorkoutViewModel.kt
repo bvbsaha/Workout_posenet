@@ -16,7 +16,6 @@ import kotlin.coroutines.CoroutineContext
  * @property repositoryExercise is var repository with exercise and function
  * @property allExercise is all exercise in database
  * @constructor get repository and allWorkout
- * @author Mateusz Karłowski
  */
 
 open class WorkoutViewModel(application: Application) : AndroidViewModel(application) {
@@ -39,17 +38,13 @@ open class WorkoutViewModel(application: Application) : AndroidViewModel(applica
         allExercise = repositoryExercise.allExercise
     }
 
-    /**
-     * function **insert** insert Workout to database
-     */
+   //Функция для записи тренировок в бд
 
     fun insert(workout: Workout) = scope.launch(Dispatchers.IO) {
         repository.insert(workout)
     }
 
-    /**
-     * function insert insert exercise to database
-     */
+    //Функция для записи упражнений в бд
 
     fun insert(exercise: Exercise) = scope.launch(Dispatchers.IO) {
         repositoryExercise.insert(exercise)
@@ -166,5 +161,8 @@ open class WorkoutViewModel(application: Application) : AndroidViewModel(applica
             }
             repositoryExercise.changeExerciseId(200000, toID)
         }
+    }
+     fun searchDatabase(searchQuery: String):LiveData<List<Workout>>{
+        return repository.searchDatabase(searchQuery)
     }
 }

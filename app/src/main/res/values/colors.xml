@@ -5,4 +5,5 @@
     <color name="colorAccent">@color/colorPrimary</color>
     <color name="lightBlue">@color/colorPrimaryDark</color>
     <color name="card_Blue_bg">@color/colorPrimaryDark</color>
+    <color name="White">#FFFF</color>
 </resources>

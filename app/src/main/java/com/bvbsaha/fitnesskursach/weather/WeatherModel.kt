@@ -1,4 +1,4 @@
-package com.bvbsaha.fitnesskursach.menu
+package com.bvbsaha.fitnesskursach.weather
 
 data class WeatherModel(
     val city: String,

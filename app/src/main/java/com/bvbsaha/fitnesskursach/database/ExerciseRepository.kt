@@ -3,17 +3,12 @@ package com.bvbsaha.fitnesskursach.database
 import androidx.lifecycle.LiveData
 import androidx.annotation.WorkerThread
 
-/**
- *
- * @author Mateusz Karłowski
- */
 
 class ExerciseRepository(private val exerciseDao: ExerciseDao) {
     var allExercise: LiveData<List<Exercise>> = exerciseDao.getAllExercise()
 
-    /**
-     * Insert new element to database
-     */
+    //Запись ноовго элемента в бд
+
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(exercise: Exercise) {
@@ -21,9 +16,7 @@ class ExerciseRepository(private val exerciseDao: ExerciseDao) {
         allExercise = exerciseDao.getAllExercise()
     }
 
-    /**
-     * Delete all element
-     */
+    //Удаление элемента из бд
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread

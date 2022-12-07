@@ -4,6 +4,7 @@ import androidx.lifecycle.Observer
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import android.view.View
 import android.widget.ArrayAdapter
@@ -12,16 +13,18 @@ import android.widget.Spinner
 import android.widget.Toast
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.database.Exercise
+import com.bvbsaha.fitnesskursach.exercise.CreateExerciseActivity
 import com.bvbsaha.fitnesskursach.menu.MainActivity
+import com.bvbsaha.fitnesskursach.viewer.StartActivity
+import com.bvbsaha.fitnesskursach.workout.CreateWorkoutActivity
 
-
+//Класс для создания упражнений по числу повторений
 /**
  * RepeatActivity is creator repeat exercise
  * @property series is EditText where user put series number new exercise
  * @property repeat is EditText where user put repeat number new exercise
  * @property pause is EditText where user put pause number new exercise
  * @property spinner is EditText where user choose pause formats new exercise
- * @author Mateusz Karłowski
  */
 
 class RepeatActivity : AppCompatActivity() {
@@ -31,10 +34,9 @@ class RepeatActivity : AppCompatActivity() {
     lateinit var pause: EditText
     private lateinit var spinner: Spinner
 
-    /**
-     * It finds layouts elements and stores to variable and set array strings to spinner
-     */
 
+    //нахождение элементов макета и сохранение в переменные
+    //установка строк из массива в спиннер для выбора времени
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_repeat)
@@ -53,34 +55,11 @@ class RepeatActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-    /**
-     * check EditText is not empty, evokes add and create new intent and start it
-     */
 
-    fun addExerciseRepeat(view: View) {
-        if (series.text.toString() == "" || repeat.text.toString() == "" || pause.text.toString() == "") {
-            val toast = Toast.makeText(applicationContext, "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT)
-            toast.show()
-        }
-            else if(series.text.toString().toInt() < 1 || repeat.text.toString().toInt() < 1 || pause.text.toString().toInt() < 1){
-                val toast = Toast.makeText(applicationContext,"Проверьте введенные данные",Toast.LENGTH_SHORT)
-                toast.show()
-        }
-         else if (series.text.toString().toInt() > 99 ||
-            repeat.text.toString().toInt() > 10000 ||
-            (pause.text.toString().toInt() > 6000 && spinner.selectedItem == "seconds") ||
-            (pause.text.toString().toInt() > 99 && spinner.selectedItem == "minutes")
-        ) {
-            val toast = Toast.makeText(applicationContext, "Пожалуйста, ведите меньшие значения", Toast.LENGTH_SHORT)
-            toast.show()
-        } else {
-            add()
-            var nextIntent: Intent = Intent(this, ExerciseActivity::class.java)
-            nextIntent.putExtra(SetTitleActivity.ID, intent.getIntExtra(SetTitleActivity.ID, 0))
-            startActivity(nextIntent)
-            finish()
-        }
-    }
+    //проверки правильности заполнений эдиттекстов
+    //
+
+
 
     /**
      * check EditText is not empty, evokes add and finish activity
@@ -99,18 +78,16 @@ class RepeatActivity : AppCompatActivity() {
             (pause.text.toString().toInt() > 6000 && spinner.selectedItem == "seconds") ||
             (pause.text.toString().toInt() > 99 && spinner.selectedItem == "minutes")
         ) {
-            val toast = Toast.makeText(applicationContext, "Пожалуйста, фвывведите меньшие значения", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(applicationContext, "Пожалуйста, введите меньшие значения", Toast.LENGTH_SHORT)
             toast.show()
         } else {
             add()
+            Log.d("MyLog","упражнение: ${StartActivity.workoutExercise.toString()}")
             finish()
         }
     }
 
-    /**
-     * It adds new Exercise to database for this get data from intent and EditText
-     */
-
+    //добавление упражнения в бд из интента и эдиттекстов
     private fun add() {
         var id: Int = 0
         MainActivity.workoutViewModel.allExercise.observe(this, Observer { words ->
@@ -118,11 +95,11 @@ class RepeatActivity : AppCompatActivity() {
         })
         MainActivity.workoutViewModel.insert(
             Exercise(
-                id
-                , intent.getIntExtra(SetTitleActivity.ID, 0),
-                intent.getStringExtra(ExerciseActivity.TITLE).toString(),
-                intent.getStringExtra(ExerciseActivity.DESCRIPTION).toString(),
-                intent.getStringExtra(ExerciseActivity.INSTRUCTION).toString(),
+                id,
+                intent.getIntExtra(CreateWorkoutActivity.ID, 0),
+                intent.getStringExtra(CreateExerciseActivity.TITLE).toString(),
+                intent.getStringExtra(CreateExerciseActivity.DESCRIPTION).toString(),
+                intent.getStringExtra(CreateExerciseActivity.INSTRUCTION).toString(),
                 series.text.toString().toInt(),
                 false,
                 0,

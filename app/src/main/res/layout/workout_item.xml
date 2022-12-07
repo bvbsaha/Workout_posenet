@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardBackgroundColor="@color/card_Blue_bg"
+    app:cardBackgroundColor="@color/White"
     app:cardCornerRadius="10dp">
 
     <LinearLayout
@@ -24,7 +24,7 @@
                 style="@style/TextViewCreator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#ffff"
+                android:textColor="#121010"
                 android:textSize="30dp" />
 
             <TextView
@@ -32,7 +32,7 @@
                 style="@style/TextViewCreator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#ffff" />
+                android:textColor="#090808" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

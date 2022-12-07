@@ -9,22 +9,19 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-/**
- * It opens data, This class is singleton
- * @author Mateusz Karłowski
- */
+//Абстрактный класс для создания и открытия бд
 
 @Database(entities = arrayOf(Exercise::class), version = 1)
 abstract class ExerciseDatabase : RoomDatabase() {
+
     abstract fun exerciseDao(): ExerciseDao
+
 
     companion object {
         @Volatile
         private var INSTANCE: ExerciseDatabase? = null
 
-        /**
-         * Singleton implementation and open database
-         */
+        //Открытие бд
 
         fun getDatabase(
             context: Context,

@@ -1,4 +1,4 @@
-package com.bvbsaha.fitnesskursach.viewer
+package com.bvbsaha.fitnesskursach.exercise
 
 import android.content.Context
 import android.content.Intent
@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.database.Exercise
+import com.bvbsaha.fitnesskursach.workout.WorkoutViewActivity
 
 /**
  * class ExerciseAdapter extends from RecycleView.Adapter and it is for RecycleView
@@ -17,7 +19,6 @@ import com.bvbsaha.fitnesskursach.database.Exercise
  *  @see Exercise
  *  @property id stores id clicked item
  *  @property ID is string which stores id address. This address is for intent can put ID. This property is companion object because ExerciseViewActivity must have address for read data
- *  @author Mateusz Karłowski
  */
 
 
@@ -48,8 +49,8 @@ class ExerciseAdapter(context: Context) : RecyclerView.Adapter<ExerciseAdapter.E
         holder.mExerciseDescription.text = currentString
         if (mExercise[position].timeCheck) {
             when (mExercise[position].timeFormat) {
-                "seconds" -> currentString = "sec"
-                else -> currentString = "min"
+                "seconds" -> currentString = "сек"
+                else -> currentString = "мин"
             }
             holder.mExerciseDetails.text =
                 "Series: ${mExercise[position].series} Time: ${mExercise[position].time} $currentString"
@@ -57,8 +58,8 @@ class ExerciseAdapter(context: Context) : RecyclerView.Adapter<ExerciseAdapter.E
             holder.mExerciseDetails.text = "Series: ${mExercise[position].series} Repeat: ${mExercise[position].repeat}"
         }
         when (mExercise[position].timeFormat) {
-            "seconds" -> currentString = "sec"
-            else -> currentString = "min"
+            "seconds" -> currentString = "сек"
+            else -> currentString = "мин"
         }
         holder.mExerciseDetails.text =
             "${holder.mExerciseDetails.text} Pause: ${mExercise[position].pause} $currentString"
@@ -103,11 +104,15 @@ class ExerciseAdapter(context: Context) : RecyclerView.Adapter<ExerciseAdapter.E
          */
 
         override fun onClick(view: View) {
-            var intentView: Intent = Intent(itemView.context, ExerciseViewActivity::class.java)
-            intentView.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            intentView.putExtra(ID, id)
-            itemView.context.startActivity(intentView)
-
+            if (id >= 80){
+                val toast = Toast.makeText(itemView.context,"Вы не можете редактировать стандартные упражнения",Toast.LENGTH_SHORT)
+                toast.show()
+            }else {
+                val intentView: Intent = Intent(itemView.context, ExerciseViewActivity::class.java)
+                intentView.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                intentView.putExtra(ID, id)
+                itemView.context.startActivity(intentView)
+            }
         }
     }
 
@@ -119,7 +124,7 @@ class ExerciseAdapter(context: Context) : RecyclerView.Adapter<ExerciseAdapter.E
     fun setList(list: List<Exercise>) {
         var tmp: ArrayList<Exercise> = ArrayList()
         list.forEach {
-            if (it.workoutId == ViewActivity.workoutId) {
+            if (it.workoutId == WorkoutViewActivity.workoutId) {
                 tmp.add(it)
             }
 
@@ -129,7 +134,7 @@ class ExerciseAdapter(context: Context) : RecyclerView.Adapter<ExerciseAdapter.E
     }
 
     companion object {
-        const val ID = "com.mateusz.workoutcustomer.ExerciseId"
+        const val ID = "com.bvbsaha.fitnesskursach.ExerciseId"
     }
 
 }

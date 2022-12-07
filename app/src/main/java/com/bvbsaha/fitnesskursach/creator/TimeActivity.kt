@@ -12,7 +12,9 @@ import android.widget.Spinner
 import android.widget.Toast
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.database.Exercise
+import com.bvbsaha.fitnesskursach.exercise.CreateExerciseActivity
 import com.bvbsaha.fitnesskursach.menu.MainActivity
+import com.bvbsaha.fitnesskursach.workout.CreateWorkoutActivity
 
 /**
  * RepeatActivity is creator repeat exercise
@@ -21,8 +23,6 @@ import com.bvbsaha.fitnesskursach.menu.MainActivity
  * @property pause is EditText where user put pause number new exercise
  * @property spinner is EditText where user choose time formats new exercise
  * @property spinnerPause is EditText where user choose pause formats new exercise
- *
- * @author Mateusz Karłowski
  */
 
 class TimeActivity : AppCompatActivity() {
@@ -64,40 +64,7 @@ class TimeActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-    /**
-     * check EditText is not empty, evokes add and create new intent and start it
-     */
 
-    fun addExercise(view: View) {
-        if (series.text.toString() == "" || time.text.toString() == "" || pause.text.toString() == "") {
-            val toast = Toast.makeText(applicationContext, "Пожалуйства, введите данные", Toast.LENGTH_SHORT)
-            toast.show()
-        } else if (series.text.toString().toInt() < 1 || time.text.toString().toInt() < 1 || pause.text.toString().toInt() < 1) {
-            val toast = Toast.makeText(applicationContext, "Проверьте введенные данные", Toast.LENGTH_SHORT)
-            toast.show()
-        }
-        else if
-                (series.text.toString().toInt() > 99 ||
-            (time.text.toString().toInt() > 6000 && spinner.selectedItem == "seconds") ||
-            (time.text.toString().toInt() > 99 && spinner.selectedItem == "minutes") ||
-            (pause.text.toString().toInt() > 6000 && spinnerPause.selectedItem == "seconds") ||
-            (pause.text.toString().toInt() > 99 && spinnerPause.selectedItem == "minutes")
-        )
-           {
-            val toast = Toast.makeText(applicationContext, "Пожалуйства, введите меньшие значения", Toast.LENGTH_SHORT)
-            toast.show()
-        }
-
-        else {
-            add()
-            var nextIntent: Intent = Intent(this, ExerciseActivity::class.java)
-            nextIntent.putExtra(SetTitleActivity.ID, intent.getIntExtra(SetTitleActivity.ID, 0))
-            startActivity(nextIntent)
-            finish()
-        }
-
-
-    }
 
     /**
      * check EditText is not empty, evokes add and finish activity
@@ -116,7 +83,7 @@ class TimeActivity : AppCompatActivity() {
             (pause.text.toString().toInt() > 6000 && spinnerPause.selectedItem == "seconds") ||
             (pause.text.toString().toInt() > 99 && spinnerPause.selectedItem == "minutes")
         ) {
-            val toast = Toast.makeText(applicationContext, "Пожалуйства, введите меньшие значения", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(applicationContext, "Пожалуйста, введите меньшие значения", Toast.LENGTH_SHORT)
             toast.show()
         } else {
             add()
@@ -136,10 +103,10 @@ class TimeActivity : AppCompatActivity() {
         MainActivity.workoutViewModel.insert(
             Exercise(
                 id
-                , intent.getIntExtra(SetTitleActivity.ID, 0),
-                intent.getStringExtra(ExerciseActivity.TITLE).toString(),
-                intent.getStringExtra(ExerciseActivity.DESCRIPTION).toString(),
-                intent.getStringExtra(ExerciseActivity.INSTRUCTION).toString(),
+                , intent.getIntExtra(CreateWorkoutActivity.ID, 0),
+                intent.getStringExtra(CreateExerciseActivity.TITLE).toString(),
+                intent.getStringExtra(CreateExerciseActivity.DESCRIPTION).toString(),
+                intent.getStringExtra(CreateExerciseActivity.INSTRUCTION).toString(),
                 series.text.toString().toInt(),
                 true,
                 time.text.toString().toInt(),

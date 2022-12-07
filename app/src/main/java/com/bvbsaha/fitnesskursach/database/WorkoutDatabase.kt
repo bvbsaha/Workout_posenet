@@ -9,26 +9,18 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-/**
- * class **WorkoutDatabase** is singleton for build and open database
- * @author Mateusz Karłowski
- */
+//Класс для открытия и создани] базы данных
 
 @Database(entities = arrayOf(Workout::class), version = 1)
 abstract class WorkoutDatabase : RoomDatabase() {
-    /**
-     * Abstract fun
-     * @return WorkoutDao
-     */
+
     abstract fun workoutDao(): WorkoutDao
 
     companion object {
         @Volatile
         private var INSTANCE: WorkoutDatabase? = null
 
-        /**
-         * Singleton implementation and open database
-         */
+       //Открытие базы данных
 
         fun getDatabase(
             context: Context,

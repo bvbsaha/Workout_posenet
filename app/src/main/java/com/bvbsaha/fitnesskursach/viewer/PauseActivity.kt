@@ -22,7 +22,7 @@ class PauseActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pause)
         var nextExericse: TextView= findViewById(R.id.nextExercise)
         try {
-            nextExericse.text = "Next exercise: ${StartActivity.workoutExercise[StartActivity.position].title}"
+            nextExericse.text = "Следующее упражнение: ${StartActivity.workoutExercise[StartActivity.position].title}"
         }
         catch (e: Exception){
             nextExericse.text = ""
@@ -36,13 +36,14 @@ class PauseActivity : AppCompatActivity() {
         }
         progresBar.max = timeSeconds
         progresBar.progress = timeSeconds
+
         object : CountDownTimer(timeSeconds * 1000.toLong(), 1000) {
 
             override fun onTick(millisUntilFinished: Long) {
                 if (timeFormat == "seconds") {
-                    time.text = "${millisUntilFinished / 1000} sec"
+                    time.text = "${millisUntilFinished / 1000} сек"
                 } else {
-                    time.text = "${(millisUntilFinished / 60000).toInt()} min ${millisUntilFinished / 1000 % 60} sec"
+                    time.text = "${(millisUntilFinished / 60000).toInt()} мин ${millisUntilFinished / 1000 % 60} сек"
                 }
                 if (close) {
                     cancel()
@@ -53,7 +54,7 @@ class PauseActivity : AppCompatActivity() {
             override fun onFinish() {
                 var intent: Intent
                 if (StartActivity.workoutExercise.size == StartActivity.position) {
-                    val toast = Toast.makeText(applicationContext, "You are finish workout", Toast.LENGTH_SHORT)
+                    val toast = Toast.makeText(applicationContext, "Тренировка завершена", Toast.LENGTH_SHORT)
                     toast.show()
                     intent = Intent(applicationContext, MenuActivity::class.java)
                     startActivity(intent)
@@ -74,7 +75,7 @@ class PauseActivity : AppCompatActivity() {
 
     fun stopPause(view: View) {
         if (StartActivity.workoutExercise.size == StartActivity.position) {
-            val toast = Toast.makeText(applicationContext, "You are finish workout", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(applicationContext, "Тренировка завершена", Toast.LENGTH_SHORT)
             toast.show()
             intent = Intent(applicationContext, MenuActivity::class.java)
             StartActivity.position = 0
@@ -92,14 +93,14 @@ class PauseActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         AlertDialog.Builder(this)
-            .setTitle("Cancel Workout")
-            .setMessage("Are you sure you want to cancel workout?")
+            .setTitle("Отменить тренировку")
+            .setMessage("Вы уверены, что хотите отменить тренировку?")
             .setPositiveButton("OK") { dialog, which ->
                 super.onBackPressed()
                 StartActivity.series = 0
                 close = true
             }
-            .setNegativeButton("CANCLE", null)
+            .setNegativeButton("Отмена", null)
             .show()
     }
 }

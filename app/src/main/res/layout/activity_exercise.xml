@@ -1,117 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".creator.ExerciseActivity">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".exercise.CreateExerciseActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp">
 
     <TextView
-            android:layout_width="152dp"
-            android:layout_height="34dp"
-            android:id="@+id/exercise_title_text_view" android:text="@string/name_exercise"
-            android:layout_marginTop="116dp" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            style="@style/TextViewCreator"/>
+        android:id="@+id/exercise_title_text_view"
+        style="@style/TextViewCreator"
+        android:layout_width="266dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/name_exercise"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
     <TextView
-            android:layout_width="152dp"
-            android:layout_height="32dp"
-            android:id="@+id/exercise_instruction_text_view" android:text="@string/instruction"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            style="@style/TextViewCreator" android:layout_marginTop="25dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView"/>
+        android:id="@+id/exercise_instruction_text_view"
+        style="@style/TextViewCreator"
+        android:layout_width="271dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="72dp"
+        android:text="Введите инструкцию"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exercise_title_edit_text" />
+
     <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10"
-            android:id="@+id/exercise_title_edit_text" android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBaseline_toBaselineOf="@+id/exercise_title_text_view"
-            android:hint="@string/name_exercise"
-            android:background="@null" app:layout_constraintStart_toEndOf="@+id/exercise_title_text_view"
-            android:layout_marginStart="8dp" android:autofillHints="" tools:targetApi="o"/>
+        android:id="@+id/exercise_title_edit_text"
+        android:layout_width="210dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:background="@null"
+        android:ems="10"
+        android:hint="Название"
+        android:inputType="text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exercise_title_text_view"
+        tools:targetApi="o" />
+
     <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="text|textMultiLine"
-            android:ems="10"
-            android:id="@+id/exercise_instruction_edit_text"
-            android:singleLine="false"
-            android:lines="7"
-            android:minLines="6"
-            android:maxLines="7"
-            app:layout_constraintTop_toTopOf="@+id/exercise_instruction_text_view"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
-            android:background="@null"
-            android:hint="@string/instruction"
-            android:gravity="top" app:layout_constraintStart_toEndOf="@+id/exercise_instruction_text_view"
-            android:layout_marginStart="8dp" android:autofillHints="" tools:targetApi="o"/>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/exercise_description_edit_text"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView"
-            android:hint="@string/description"
-            android:background="@null" app:layout_constraintStart_toEndOf="@+id/textView"
-            android:layout_marginStart="8dp" android:importantForAutofill="no" tools:targetApi="o"/>
-    <TextView
-            android:text="@string/description"
-            android:layout_width="152dp"
-            android:layout_height="32dp"
-            android:id="@+id/textView"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            style="@style/TextViewCreator" android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/exercise_title_text_view"/>
+        android:id="@+id/exercise_instruction_edit_text"
+        android:layout_width="191dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:background="@null"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="@string/instruction"
+        android:inputType="text|textMultiLine"
+        android:lines="7"
+        android:maxLines="7"
+        android:minLines="6"
+        android:singleLine="false"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exercise_instruction_text_view"
+        tools:targetApi="o" />
+
+    <Spinner
+        android:id="@+id/diffspinner"
+        style="@style/TextViewCreator"
+        android:layout_width="124dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toStartOf="@+id/radio_group"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exercise_instruction_edit_text" />
+
     <RadioGroup
-            android:layout_width="136dp"
-            android:layout_height="76dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="36dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
-            android:id="@+id/radio_group" app:layout_constraintHorizontal_bias="1.0"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView14">
+        android:id="@+id/radio_group"
+        android:layout_width="216dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.917"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exercise_instruction_edit_text">
+
         <RadioButton
-                android:text="@string/time"
-                android:layout_width="match_parent"
-                android:layout_height="49dp" android:id="@+id/radio_button_time" android:layout_weight="1"
-                android:textColor="@color/colorAccent" android:textSize="24sp"/>
-        <RadioButton
-                android:text="@string/repeat"
-                android:layout_width="match_parent"
-                android:layout_height="51dp" android:id="@+id/radio_button_repeat" android:layout_weight="1"
-                android:textColor="@color/colorAccent" android:textSize="24sp"/>
-    </RadioGroup>
-    <Button
-            android:text="@string/next"
-            android:layout_width="0dp"
+            android:id="@+id/radio_button_repeat"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/next_exercise_activity" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            android:onClick="nextExercise"
-            style="@style/ButtonCreator" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
+            android:layout_weight="1"
+            android:text="Повторения"
+            android:textColor="#0E0C0C"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="36dp"
+            tools:layout_editor_absoluteY="490dp" />
+
+        <RadioButton
+            android:id="@+id/radio_button_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="По времени"
+            android:textColor="#15100F"
+            android:textSize="24sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/next_exercise_activity"
+        style="@style/ButtonCreator"
+        android:layout_width="234dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="nextExercise"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_group"
+        app:layout_constraintVertical_bias="0.355" />
+
     <TextView
-            android:text="@string/create_exercise"
-            android:layout_width="210dp"
-            android:layout_height="49dp"
-            android:id="@+id/textView13" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginTop="24dp" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.461"
-            style="@style/TextViewCreator" android:textSize="30sp"/>
-    <TextView
-            android:layout_width="0dp"
-            android:layout_height="68dp"
-            android:id="@+id/textView14"
-            style="@style/TextViewCreator" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/exercise_instruction_edit_text"
-            android:text="@string/will_exercise_be_for_time_or_for_repeat" android:layout_marginStart="16dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"/>
+        android:id="@+id/textView13"
+        style="@style/TextViewCreator"
+        android:layout_width="331dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/create_exercise"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.656"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

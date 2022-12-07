@@ -5,16 +5,14 @@ import androidx.annotation.WorkerThread
 
 /** Workout Reposority is class contain
  * @property wordDao element for get all workout
- * @property allWorkout has all workour
- * @author Mateusz Karłowski
+ * @property allWorkout has all workouе
  */
 
 class WorkoutRepository(private val workoutDao: WorkoutDao) {
     var allWorkout: LiveData<List<Workout>> = workoutDao.getAllWorkout()
 
-    /**
-     * Insert new element to database
-     */
+   //Запись нового элемента в бд
+
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(workout: Workout) {
@@ -22,6 +20,7 @@ class WorkoutRepository(private val workoutDao: WorkoutDao) {
         allWorkout = workoutDao.getAllWorkout()
     }
 
+    //Удаление элмента
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun deleteAll() {
@@ -44,5 +43,9 @@ class WorkoutRepository(private val workoutDao: WorkoutDao) {
     @WorkerThread
     suspend fun updateWorkoutDescription(id: Int, description : String) {
         workoutDao.updateWorkoutDescription(description,id)
+    }
+
+     fun searchDatabase(searchQuery:String):LiveData<List<Workout>>{
+        return workoutDao.searchDatabase(searchQuery)
     }
 }

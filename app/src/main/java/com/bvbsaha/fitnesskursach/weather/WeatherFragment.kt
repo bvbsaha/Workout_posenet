@@ -1,4 +1,4 @@
-package com.bvbsaha.fitnesskursach.menu
+package com.bvbsaha.fitnesskursach.weather
 
 import android.os.Bundle
 import android.util.Log
@@ -11,13 +11,12 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.bvbsaha.fitnesskursach.databinding.FragmentHistoryBinding
+import com.bvbsaha.fitnesskursach.weather.WeatherModel
+import com.bvbsaha.fitnesskursach.weather.WeatherViewModel
 import com.squareup.picasso.Picasso
 import org.json.JSONObject
 
-/**
- * class CalendarFragment only show layout R.layout.fragment_settings
- * @author Mateusz Karłowski
- */
+
 const val API_KEY = "7110427c6c5a455aa5d183209222111"
 class WeatherFragment : Fragment() {
 
@@ -26,7 +25,7 @@ class WeatherFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentHistoryBinding.inflate(inflater,container, false)
-        requestWeatherData("Madrid")
+        requestWeatherData("Minsk")
         updateCurrent()
         return binding.root
     }

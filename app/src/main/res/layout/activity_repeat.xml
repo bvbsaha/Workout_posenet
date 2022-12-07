@@ -6,107 +6,136 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".creator.RepeatActivity">
+
     <TextView
-            android:text="@string/exercise_details"
-            android:layout_width="175dp"
-            android:layout_height="43dp"
-            android:id="@+id/textView15" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginTop="24dp" app:layout_constraintTop_toTopOf="parent"
-            style="@style/TextViewCreator"/>
+        android:id="@+id/textView15"
+        style="@style/TextViewCreator"
+        android:layout_width="248dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="Детали упражнения"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-            android:text="@string/series"
-            android:layout_width="87dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2"
-            android:layout_marginTop="136dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"
-            style="@style/TextViewCreator"/>
+        android:id="@+id/textView2"
+        style="@style/TextViewCreator"
+        android:layout_width="279dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="80dp"
+        android:text="Количесвто подходов"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
     <TextView
-            android:text="@string/repeat"
-            android:layout_width="85dp"
-            android:layout_height="31dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp" android:id="@+id/textView4"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/textView2"
-            style="@style/TextViewCreator"/>
+        android:id="@+id/textView4"
+        style="@style/TextViewCreator"
+        android:layout_width="284dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="44dp"
+        android:text="Количество повторений"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/series_repeat" />
+
     <TextView
-            android:text="@string/pause"
-            android:layout_width="85dp"
-            android:layout_height="33dp"
-            android:id="@+id/textView5"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"
-            style="@style/TextViewCreator"
-            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/textView4"/>
+        android:id="@+id/textView5"
+        style="@style/TextViewCreator"
+        android:layout_width="305dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="40dp"
+        android:text="Длительность перерыва"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repeat" />
+
     <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/series_repeat"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
-            app:layout_constraintStart_toEndOf="@+id/textView2" android:layout_marginStart="8dp"
-            android:background="@null" android:hint="@string/how_many_series" android:importantForAutofill="no"
-            tools:targetApi="o"/>
+        android:id="@+id/series_repeat"
+        android:layout_width="214dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:ems="10"
+        android:hint="Подходы"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:targetApi="o" />
+
     <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/repeat"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
-            android:layout_marginStart="8dp" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
-            android:background="@null" android:hint="@string/how_many_repeat" android:importantForAutofill="no"
-            tools:targetApi="o"/>
+        android:id="@+id/repeat"
+        android:layout_width="206dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:ems="10"
+        android:hint="Повторения"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:targetApi="o" />
+
     <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="time"
-            android:ems="10"
-            android:id="@+id/pause_repeat"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
-            app:layout_constraintStart_toEndOf="@+id/textView5" android:layout_marginStart="8dp"
-            android:background="@null" android:hint="@string/how_many_series" android:importantForAutofill="no"
-            tools:targetApi="o"
-            app:layout_constraintEnd_toStartOf="@+id/pauseMenuRepeat"/>
+        android:id="@+id/pause_repeat"
+        android:layout_width="170dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:ems="10"
+        android:hint="Перерыв"
+        android:importantForAutofill="no"
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:targetApi="o" />
+
     <Spinner
-            android:id="@+id/pauseMenuRepeat"
-            android:layout_width="125dp"
-            android:layout_height="22dp"
-            android:spinnerMode="dropdown"
-            style="@style/TextViewCreator"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintTop_toTopOf="@+id/pause_repeat"
-            app:layout_constraintBottom_toBottomOf="@+id/pause_repeat"/>
+        android:id="@+id/pauseMenuRepeat"
+        style="@style/TextViewCreator"
+        android:layout_width="125dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/pause_repeat"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
     <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="404dp"
-            android:layout_height="51dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp">
+        android:layout_width="404dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pause_repeat"
+        app:layout_constraintVertical_bias="0.914">
+
         <Button
-                android:text="@string/next"
-                android:id="@+id/button"
-                android:onClick="addExerciseRepeat"
-                style="@style/ButtonCreator"
-                android:layout_weight=".5"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="8dp"/>
-        <Button
-                android:text="@string/finish"
-                android:id="@+id/button3"
-                android:onClick="finishRepeat"
-                style="@style/ButtonCreator"
-                android:layout_weight=".5"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"/>
+            android:id="@+id/button3"
+            style="@style/ButtonCreator"
+            android:layout_weight=".5"
+            android:onClick="finishRepeat"
+            android:text="Завершить" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
