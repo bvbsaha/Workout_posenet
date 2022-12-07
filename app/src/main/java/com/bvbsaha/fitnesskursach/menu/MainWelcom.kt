@@ -10,18 +10,12 @@ import com.bvbsaha.fitnesskursach.database.Exercise
 import com.bvbsaha.fitnesskursach.database.Workout
 import com.bvbsaha.fitnesskursach.database.WorkoutViewModel
 
-/**
- * MainActivity is splash screen
- * It shows  on 0.7 seconds layout activity_welcom and switch to MenuActivity
- */
 
 
 class MainActivity : AppCompatActivity() {
 
-    /**
-     * onCreate create WorkoutViewModel and ready other data in database.
-     * The second task onCreate is stop splash screen on 7 seconds
-     */
+    //создание workouviewmodel и чтение данных из бд
+    //задержа на 7 секуд
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcom)
@@ -30,8 +24,14 @@ class MainActivity : AppCompatActivity() {
         Handler().postDelayed({
             val homeIntent = Intent(this@MainActivity, MenuActivity::class.java)
             startActivity(homeIntent)
-            MainActivity.workoutViewModel.insert(Workout(80,"Руки","Сложно"))
-            MainActivity.workoutViewModel.insert(Exercise(80,80,"Dsgsggsgs","Ssggcs","sgddsdgdsg",4,true,13,"seconds",0,5,"seconds"))
+            workoutViewModel.insert(Workout(80,"Руки","Сложно"))
+            workoutViewModel.insert(Exercise(80,80,"Отжимания","Сложно","",4,true,13,"seconds",0,5,"seconds",false))
+            workoutViewModel.insert(Workout(81,"Ноги","Сложно"))
+            workoutViewModel.insert(Exercise(81,81,"Приседания","Легко","",4,true,13,"seconds",0,5,"seconds",false))
+            workoutViewModel.insert(Workout(82,"Пресс","Сложно"))
+            workoutViewModel.insert(Exercise(82,82,"Скручивания","Сложно","",4,true,13,"seconds",0,5,"seconds",false))
+            workoutViewModel.insert(Workout(83,"Разминка","Легко"))
+            workoutViewModel.insert(Exercise(83,83,"Разминка шеи","Легко","",4,true,13,"seconds",0,5,"seconds",false))
             finish()
         }, 700)
     }

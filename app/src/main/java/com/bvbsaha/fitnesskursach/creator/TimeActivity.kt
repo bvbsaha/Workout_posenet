@@ -16,14 +16,6 @@ import com.bvbsaha.fitnesskursach.exercise.CreateExerciseActivity
 import com.bvbsaha.fitnesskursach.menu.MainActivity
 import com.bvbsaha.fitnesskursach.workout.CreateWorkoutActivity
 
-/**
- * RepeatActivity is creator repeat exercise
- * @property series is EditText where user put series number new exercise
- * @property repeat is EditText where user put repeat number new exercise
- * @property pause is EditText where user put pause number new exercise
- * @property spinner is EditText where user choose time formats new exercise
- * @property spinnerPause is EditText where user choose pause formats new exercise
- */
 
 class TimeActivity : AppCompatActivity() {
 
@@ -33,9 +25,8 @@ class TimeActivity : AppCompatActivity() {
     private lateinit var spinner: Spinner
     private lateinit var spinnerPause: Spinner
 
-    /**
-     * It finds layouts elements and stores to variable and set array strings to spinners
-     */
+    //нахождение элементов макета и сохранение в переменные
+    //установка строк из массива в спиннер для выбора времени
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,9 +57,7 @@ class TimeActivity : AppCompatActivity() {
 
 
 
-    /**
-     * check EditText is not empty, evokes add and finish activity
-     */
+    //проверка заполнения, вызов функций добавления и завершения активити
 
     fun finish(view: View) {
         if (series.text.toString() == "" || time.text.toString() == "" || pause.text.toString() == "") {
@@ -78,10 +67,10 @@ class TimeActivity : AppCompatActivity() {
             val toast = Toast.makeText(applicationContext, "Проверьте введенные данные", Toast.LENGTH_SHORT)
             toast.show()
         } else if (series.text.toString().toInt() > 99 ||
-            (time.text.toString().toInt() > 6000 && spinner.selectedItem == "seconds") ||
-            (time.text.toString().toInt() > 99 && spinner.selectedItem == "minutes") ||
-            (pause.text.toString().toInt() > 6000 && spinnerPause.selectedItem == "seconds") ||
-            (pause.text.toString().toInt() > 99 && spinnerPause.selectedItem == "minutes")
+            (time.text.toString().toInt() > 6000 && spinner.selectedItem == "секунды") ||
+            (time.text.toString().toInt() > 99 && spinner.selectedItem == "минуты") ||
+            (pause.text.toString().toInt() > 6000 && spinnerPause.selectedItem == "секунды") ||
+            (pause.text.toString().toInt() > 99 && spinnerPause.selectedItem == "минуты")
         ) {
             val toast = Toast.makeText(applicationContext, "Пожалуйста, введите меньшие значения", Toast.LENGTH_SHORT)
             toast.show()
@@ -91,9 +80,7 @@ class TimeActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * It adds new Exercise to database for this get data from intent and EditText
-     */
+    //добавление упражнения в бд, данные берутся из намерений и эдиттекстов
 
     fun add() {
         var id: Int = 0
@@ -113,26 +100,21 @@ class TimeActivity : AppCompatActivity() {
                 spinner.selectedItem.toString(),
                 0,
                 pause.text.toString().toInt(),
-                spinnerPause.selectedItem.toString()
+                spinnerPause.selectedItem.toString(),
+                false
             )
         )
     }
 
-    /**
-     * It shows dialog window with message "Are you sure you want to not save this exercise?"
-     * It has 2 options:
-     * YES back to MenuActivity
-     * NO do nothing
-     */
 
     override fun onBackPressed() {
         AlertDialog.Builder(this)
-            .setTitle("Create Exercise")
-            .setMessage("Are you sure you want to not save this exercise?")
-            .setPositiveButton("YES") { dialog, which ->
+            .setTitle("Создание упражнения")
+            .setMessage("Вы уверены, что хотите выйти, не сохранив упражнение?")
+            .setPositiveButton("ДА") { dialog, which ->
                 super.onBackPressed()
             }
-            .setNegativeButton("NO", null)
+            .setNegativeButton("НЕТ", null)
             .show()
     }
 }

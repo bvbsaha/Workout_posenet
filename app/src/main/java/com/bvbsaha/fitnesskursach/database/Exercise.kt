@@ -17,5 +17,6 @@ data class Exercise(
     @ColumnInfo(name = "timeFormat") var timeFormat: String,
     @ColumnInfo(name = "repeat") var repeat: Int,
     @ColumnInfo(name = "pause") var pause: Int,
-    @ColumnInfo(name = "pauseFormat") var pauseFormat: String
+    @ColumnInfo(name = "pauseFormat") var pauseFormat: String,
+    @ColumnInfo(name = "done") var done:Boolean
 )

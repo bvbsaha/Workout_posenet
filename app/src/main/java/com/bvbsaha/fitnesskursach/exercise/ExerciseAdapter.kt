@@ -1,5 +1,6 @@
 package com.bvbsaha.fitnesskursach.exercise
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
@@ -9,17 +10,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.core.content.res.ResourcesCompat.getColor
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.database.Exercise
+import com.bvbsaha.fitnesskursach.database.Workout
+import com.bvbsaha.fitnesskursach.menu.MainActivity
 import com.bvbsaha.fitnesskursach.workout.WorkoutViewActivity
+import com.bvbsaha.fitnesskursach.workout.WorkoutViewActivity.Companion.workoutId
+import kotlinx.android.synthetic.main.activity_view.*
+import kotlinx.android.synthetic.main.workout_item.*
 
-/**
- * class ExerciseAdapter extends from RecycleView.Adapter and it is for RecycleView
- *  @property mExercise is list Workout
- *  @see Exercise
- *  @property id stores id clicked item
- *  @property ID is string which stores id address. This address is for intent can put ID. This property is companion object because ExerciseViewActivity must have address for read data
- */
 
 
 class ExerciseAdapter(context: Context) : RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
@@ -28,47 +28,47 @@ class ExerciseAdapter(context: Context) : RecyclerView.Adapter<ExerciseAdapter.E
     lateinit var mExercise: List<Exercise>
     var id: Int = 0
 
-    /**
-     * onCreateViewHolder find CardView in layout and return items look like R.layout.exercise_item with data
-     */
 
+    @SuppressLint("ResourceAsColor")
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ExerciseViewHolder {
         val itemView = mInflater.inflate(R.layout.exercise_item, parent, false)
         cardView = itemView.findViewById(R.id.cardView)
+
         return ExerciseViewHolder(itemView, this)
     }
 
-    /**
-     * onBindViewHolder set data from mExercise to item
-     */
+   //заполенение данных из mExercise в item
 
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
         var currentString = mExercise[position].title
         holder.mExerciseTitle.text = currentString
         currentString = mExercise[position].description
         holder.mExerciseDescription.text = currentString
+        holder.id = mExercise[position].id
+        holder.done = mExercise[position].done
+        if (holder.done ){
+            cardView.setCardBackgroundColor(R.color.colorAccent)
+        }
         if (mExercise[position].timeCheck) {
             when (mExercise[position].timeFormat) {
-                "seconds" -> currentString = "сек"
+                "секунды" -> currentString = "сек"
                 else -> currentString = "мин"
             }
             holder.mExerciseDetails.text =
-                "Series: ${mExercise[position].series} Time: ${mExercise[position].time} $currentString"
+                "Подходы: ${mExercise[position].series} Время: ${mExercise[position].time} $currentString"
         } else {
-            holder.mExerciseDetails.text = "Series: ${mExercise[position].series} Repeat: ${mExercise[position].repeat}"
+            holder.mExerciseDetails.text = "Подходы: ${mExercise[position].series} Повторения: ${mExercise[position].repeat}"
         }
-        when (mExercise[position].timeFormat) {
-            "seconds" -> currentString = "сек"
+        when (mExercise[position].pauseFormat) {
+            "секунды" -> currentString = "сек"
             else -> currentString = "мин"
         }
         holder.mExerciseDetails.text =
-            "${holder.mExerciseDetails.text} Pause: ${mExercise[position].pause} $currentString"
+            "${holder.mExerciseDetails.text} Пауза: ${mExercise[position].pause} $currentString"
         holder.id = mExercise[position].id
-    }
 
-    /**
-     * @return how many item
-     */
+    }
 
     override fun getItemCount(): Int {
         return if (::mExercise.isInitialized) {
@@ -78,14 +78,6 @@ class ExerciseAdapter(context: Context) : RecyclerView.Adapter<ExerciseAdapter.E
         }
     }
 
-    /**
-     * class WorkoutViewHolder set onClick card listener and find layout item in R.layout.workout_item
-     * @property id is workout id
-     * @property mExerciseTitle is TextView with exercise Title
-     * @property mExerciseDescription is TextView with exercise Description.
-     * @property mExerciseDetails is TextView with exercise Details
-     * @constructor sets OnClick as OnClickListener
-     */
 
     inner class ExerciseViewHolder(viewItem: View, exerciseAdapter: ExerciseAdapter) :
         RecyclerView.ViewHolder(viewItem), View.OnClickListener {
@@ -94,19 +86,17 @@ class ExerciseAdapter(context: Context) : RecyclerView.Adapter<ExerciseAdapter.E
         var mExerciseDescription: TextView = viewItem.findViewById(R.id.exercise_desctiption)
         var mExerciseDetails: TextView = viewItem.findViewById(R.id.detailsExercise)
         var id: Int = this@ExerciseAdapter.id
-
+        var done:Boolean = false
         init {
             viewItem.setOnClickListener(this)
         }
 
-        /**
-         * onClick starts new Intent and put ID to this Intent
-         */
-
+       //запускает новый интент по нажатию и передает туда ID
         override fun onClick(view: View) {
             if (id >= 80){
                 val toast = Toast.makeText(itemView.context,"Вы не можете редактировать стандартные упражнения",Toast.LENGTH_SHORT)
                 toast.show()
+
             }else {
                 val intentView: Intent = Intent(itemView.context, ExerciseViewActivity::class.java)
                 intentView.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -116,11 +106,7 @@ class ExerciseAdapter(context: Context) : RecyclerView.Adapter<ExerciseAdapter.E
         }
     }
 
-    /**
-     * function setList set new List with new Data
-     *  @property list is list with exercise
-     */
-
+    //заполняет лист новыми данными
     fun setList(list: List<Exercise>) {
         var tmp: ArrayList<Exercise> = ArrayList()
         list.forEach {

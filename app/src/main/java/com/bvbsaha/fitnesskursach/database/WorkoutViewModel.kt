@@ -9,20 +9,12 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-/**
- * WorkoutViewModel is class extend AndroidViewModel
- * @property repository is var repository
- * @property allWorkout is all workout in database with workout and function
- * @property repositoryExercise is var repository with exercise and function
- * @property allExercise is all exercise in database
- * @constructor get repository and allWorkout
- */
 
 open class WorkoutViewModel(application: Application) : AndroidViewModel(application) {
 
     private var parentJob = Job()
     private val coroutineContext: CoroutineContext
-        get() = parentJob + Dispatchers.Main
+    get() = parentJob + Dispatchers.Main
     private val scope = CoroutineScope(coroutineContext)
     var repository: WorkoutRepository
     var allWorkout: LiveData<List<Workout>>
@@ -50,44 +42,32 @@ open class WorkoutViewModel(application: Application) : AndroidViewModel(applica
         repositoryExercise.insert(exercise)
     }
 
-    /**
-     * Function stoped parentJob
-     */
 
     override fun onCleared() {
         super.onCleared()
         parentJob.cancel()
     }
 
-    /**
-     * Function delete all data
-     */
 
     fun deleteAll() = scope.launch(Dispatchers.IO) {
         repository.deleteAll()
         repositoryExercise.deleteAll()
     }
 
-    /**
-     * Function delete workout by ID
-     */
+
 
     fun deleteById(id: Int) = scope.launch(Dispatchers.IO) {
         repository.deleteById(id)
         repositoryExercise.deleteByWorkoutId(id)
     }
 
-    /**
-     * Function delete exercise by ID
-     */
+
 
     fun deleteExerciseById(id: Int) = scope.launch(Dispatchers.IO) {
         repositoryExercise.deleteByExerciseId(id)
     }
 
-    /**
-     * Function find workout by ID
-     */
+
 
     fun findWorkoutById(index: Int): Workout {
         allWorkout.value?.forEach { workout ->
@@ -97,16 +77,13 @@ open class WorkoutViewModel(application: Application) : AndroidViewModel(applica
         return Workout(0, "Error", "Error")
     }
 
-    /**
-     * Function find exercise by ID
-     */
 
     fun findExerciseById(index: Int): Exercise {
         allExercise.value?.forEach { exercise ->
             if (exercise.id == index)
                 return exercise
         }
-        return Exercise(0, 0, "Error", "Error", "Error", 0, true, 0, "Error", 0, 0, "Error")
+        return Exercise(0, 0, "Error", "Error", "Error", 0, true, 0, "Error", 0, 0, "Error",false)
     }
 
     fun updateWorkoutTitle(id: Int, title : String) = scope.launch(Dispatchers.IO){
@@ -151,6 +128,9 @@ open class WorkoutViewModel(application: Application) : AndroidViewModel(applica
 
     fun updateExercisePauseFormat(id: Int, pauseFormat : String) = scope.launch(Dispatchers.IO){
         repositoryExercise.updateExercisePauseFormat(id,pauseFormat)
+    }
+    fun updateDone(id: Int,done : Boolean)= scope.launch (Dispatchers.IO){
+        repositoryExercise.updateDone(id,done)
     }
 
     fun changeExerciseID( fromID : Int, toID: Int) = scope.launch(Dispatchers.IO) {

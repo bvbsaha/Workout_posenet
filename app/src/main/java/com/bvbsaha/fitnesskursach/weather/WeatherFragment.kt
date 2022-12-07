@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso
 import org.json.JSONObject
 
 
-const val API_KEY = "7110427c6c5a455aa5d183209222111"
+const val API_KEY = "d477d31257794e79ae6220746221112"
 class WeatherFragment : Fragment() {
 
     private lateinit var binding: FragmentHistoryBinding

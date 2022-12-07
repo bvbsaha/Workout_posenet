@@ -9,18 +9,12 @@ import android.widget.TextView
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.database.Exercise
 
-/**
- * It see exercise with repeat
- * @property exercise is current exercise object
- */
+// отображение упражнений по повторениям
 
 class RepeatViewerActivity : AppCompatActivity() {
 
     lateinit var exercise: Exercise
 
-    /**
-     * It gets current exercise. Adds one to series. Find layout elements and show data.
-     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +22,7 @@ class RepeatViewerActivity : AppCompatActivity() {
         exercise = StartActivity.workoutExercise[StartActivity.position]
         StartActivity.series++
         var currentSeries: TextView = findViewById(R.id.currentSeries2)
-        currentSeries.text = "Current series: ${StartActivity.series}"
+        currentSeries.text = "Текущий подход: ${StartActivity.series}"
         if (StartActivity.series == exercise.series) {
             StartActivity.position++
             StartActivity.series = 0
@@ -46,10 +40,6 @@ class RepeatViewerActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-    /**
-     * This function stops counting down across set close to true.
-     * Next function creates new intent and start it
-     */
 
     fun pause(view: View) {
         var intent: Intent = Intent(this, PauseActivity::class.java)
@@ -59,19 +49,16 @@ class RepeatViewerActivity : AppCompatActivity() {
         finish()
     }
 
-    /**
-     * This function displays dialog with message "Are you sure you want to cancel workout?"
-     */
 
     override fun onBackPressed() {
         AlertDialog.Builder(this)
-            .setTitle("Cancel Workout")
-            .setMessage("Are you sure you want to cancel workout?")
+            .setTitle("Отмена тренировки")
+            .setMessage("Вы уверены, что хотите отменить тренировку?")
             .setPositiveButton("OK") { dialog, which ->
                 super.onBackPressed()
                 StartActivity.series = 0
             }
-            .setNegativeButton("CANCLE", null)
+            .setNegativeButton("ОТМЕНА", null)
             .show()
     }
 }

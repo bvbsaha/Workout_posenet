@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 //Класс для открытия и создани] базы данных
 
-@Database(entities = arrayOf(Workout::class), version = 1)
+@Database(entities = arrayOf(Workout::class), version = 2)
 abstract class WorkoutDatabase : RoomDatabase() {
 
     abstract fun workoutDao(): WorkoutDao

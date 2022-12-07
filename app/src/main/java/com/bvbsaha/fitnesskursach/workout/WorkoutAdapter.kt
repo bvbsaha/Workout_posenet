@@ -9,17 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat.getColor
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.database.Workout
 import com.bvbsaha.fitnesskursach.workout.WorkoutViewActivity
+import kotlinx.android.synthetic.main.activity_view.*
 
-/**
- * class WorkoutAdapter extends from RecycleView.Adapter and it is for RecycleView
- *  @property mWorkout is list Workout
- *  @see Workout
- *  @property id stores id clicked item
- *  @property ID is string which stores id address. This address is for intent can put ID. This property is companion object because ViewActivity must have address for read data
- */
 
 class WorkoutAdapter(context: Context) : RecyclerView.Adapter<WorkoutAdapter.WorkoutViewHolder>() {
     private var mInflater = LayoutInflater.from(context)
@@ -28,20 +23,16 @@ class WorkoutAdapter(context: Context) : RecyclerView.Adapter<WorkoutAdapter.Wor
     var id: Int = 0
 
 
-    /**
-     * onCreateViewHolder find CardView in layout and return items look like R.layout.workout_item with data
-     */
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): WorkoutViewHolder {
         val itemView = mInflater.inflate(R.layout.workout_item, parent, false)
         cardView = itemView.findViewById(R.id.cardView)
+
         return WorkoutViewHolder(itemView, this)
 
     }
 
-    /**
-     * onBindViewHolder set data from mWorkout to item
-     */
+    //заполнение данных из mworkout
 
     @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: WorkoutViewHolder, positon: Int) {
@@ -52,12 +43,8 @@ class WorkoutAdapter(context: Context) : RecyclerView.Adapter<WorkoutAdapter.Wor
         holder.mWorkoutDescription.text = currentStinrg
 
 
-
     }
 
-    /**
-     * @return how many item
-     */
 
     override fun getItemCount(): Int {
         return if (::mWorkout.isInitialized) {
@@ -67,13 +54,6 @@ class WorkoutAdapter(context: Context) : RecyclerView.Adapter<WorkoutAdapter.Wor
         }
     }
 
-    /**
-     * class WorkoutViewHolder set onClick card listener and find layout item in R.layout.workout_item
-     * @property id is workout id
-     * @property mWorkoutTitle is TextView with workout Title, Its id is R.id.workout_title
-     * @property mWorkoutDescription is TextView with workout Description. Its id is R.id.workout_description
-     * @constructor sets OnClick as OnClickListener
-     */
 
     inner class WorkoutViewHolder(viewItem: View, workoutAdapter: WorkoutAdapter) : RecyclerView.ViewHolder(viewItem),
         View.OnClickListener {
@@ -86,9 +66,7 @@ class WorkoutAdapter(context: Context) : RecyclerView.Adapter<WorkoutAdapter.Wor
             viewItem.setOnClickListener(this)
         }
 
-        /**
-         * onClick starts new Intent and put ID to this Intent
-         */
+
 
         override fun onClick(view: View) {
             var intentView = Intent(itemView.context, WorkoutViewActivity::class.java)
@@ -100,10 +78,6 @@ class WorkoutAdapter(context: Context) : RecyclerView.Adapter<WorkoutAdapter.Wor
 
     }
 
-    /**
-     * function setList set new List with new Data
-     *  @property list is list with workout
-     */
 
     fun setList(list: List<Workout>) {
         mWorkout = list

@@ -30,8 +30,10 @@ class StartActivity : AppCompatActivity() {
         for (i in 0..((MainActivity.workoutViewModel.allExercise.value?.size?.minus(1)) ?: 0)) {
             if (MainActivity.workoutViewModel.allExercise.value?.get(i)?.workoutId == workout.id) {
                 workoutExercise.add(MainActivity.workoutViewModel.allExercise.value?.get(i)!!)
+
             }
         }
+
         position = 0
         var intent: Intent
         if (!workoutExercise[0].timeCheck) {

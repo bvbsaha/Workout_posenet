@@ -3,10 +3,6 @@ package com.bvbsaha.fitnesskursach.database
 import androidx.lifecycle.LiveData
 import androidx.annotation.WorkerThread
 
-/** Workout Reposority is class contain
- * @property wordDao element for get all workout
- * @property allWorkout has all workouе
- */
 
 class WorkoutRepository(private val workoutDao: WorkoutDao) {
     var allWorkout: LiveData<List<Workout>> = workoutDao.getAllWorkout()

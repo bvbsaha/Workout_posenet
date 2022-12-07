@@ -163,7 +163,7 @@
             android:layout_marginRight="8dp"
             android:layout_weight=".5"
             android:onClick="finish"
-            android:text="@string/finish" />
+            android:text="Завершить" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

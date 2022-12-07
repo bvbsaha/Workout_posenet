@@ -17,28 +17,23 @@ import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.exercise.CreateExerciseActivity
 import com.bvbsaha.fitnesskursach.database.Workout
 import com.bvbsaha.fitnesskursach.exercise.ExerciseAdapter
+import com.bvbsaha.fitnesskursach.exercise.ExerciseViewActivity
 import com.bvbsaha.fitnesskursach.menu.MainActivity
 import com.bvbsaha.fitnesskursach.viewer.StartActivity
 import com.bvbsaha.fitnesskursach.workout.WorkoutViewActivity.Companion.WORKOUTID
 import kotlinx.android.synthetic.main.activity_view.*
+import kotlinx.android.synthetic.main.exercise_item.*
+import kotlinx.android.synthetic.main.exercise_item.view.*
+import kotlinx.android.synthetic.main.workout_item.*
+import kotlinx.android.synthetic.main.workout_item.cardView
+import kotlinx.android.synthetic.main.workout_item.view.*
 
-/**
- * This class is main viewer workout
- * @property exerciseAdapter is object ExerciseAdapter for RecycleView
- * @see exerciseAdapter
- * @property id is workout current id
- * @property WORKOUTID is address where intent put data about id and where activity get data.
- */
+
 
 class WorkoutViewActivity : AppCompatActivity() {
     lateinit var exerciseAdapter: ExerciseAdapter
     var id: Int = 0
 
-
-    /**
-     * It gets id from intent. Next find workout by id in database. And print about workout info on TextView.
-     * It gets all exercise this workout and set in Adapter. Last recycleView set  adapter
-     */
 
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,16 +42,16 @@ class WorkoutViewActivity : AppCompatActivity() {
         id = intent.getIntExtra(WorkoutAdapter.ID, 0)
         val workout: Workout = MainActivity.workoutViewModel.findWorkoutById(id)
         val title: TextView = findViewById(R.id.workout_title_view_activity)
+
         if (id >= 80) {
             button5.setBackgroundColor(getColor(R.color.cardview_shadow_start_color))
             button2.setBackgroundColor(getColor(R.color.cardview_shadow_start_color))
+
         }
-        /**
-         * Set Long Listener. Listener open dialog window with editText. And you can change in dialog window workout title
-         */
+
         title.setOnLongClickListener{
             var alert : AlertDialog.Builder = AlertDialog.Builder(this)
-            alert.setTitle("Enter new workout title")
+            alert.setTitle("Введите новое имя тренировки")
             var editText : EditText = EditText(applicationContext)
             alert.setView(editText)
             editText.background.clearColorFilter()
@@ -65,12 +60,12 @@ class WorkoutViewActivity : AppCompatActivity() {
                 when {
                     editText.text.toString() == "" -> {
                         val toast =
-                            Toast.makeText(applicationContext, "Insert data please", Toast.LENGTH_SHORT)
+                            Toast.makeText(applicationContext, "Пожалуйста, введите данные", Toast.LENGTH_SHORT)
                         toast.show()
                     }
                     editText.text.toString().length > 30 -> {
                         val toast =
-                            Toast.makeText(applicationContext, "Insert shorter data please", Toast.LENGTH_SHORT)
+                            Toast.makeText(applicationContext, "Пожалуста, введите меньшие данные", Toast.LENGTH_SHORT)
                         toast.show()
                     }
                     else -> {
@@ -79,17 +74,15 @@ class WorkoutViewActivity : AppCompatActivity() {
                     }
                 }
             }
-            alert.setNegativeButton("Cancel", null)
+            alert.setNegativeButton("Отмена", null)
             alert.show()
             return@setOnLongClickListener true
         }
-        /**
-         * Set Long Listener. Listener open dialog window with editText. And you can change in dialog window workout description
-         */
+
         val description: TextView = findViewById(R.id.workout_description_view_activity)
         description.setOnLongClickListener{
             var alert : AlertDialog.Builder = AlertDialog.Builder(this)
-            alert.setTitle("Enter new workout description")
+            alert.setTitle("Введите новое описание")
             var editText : EditText = EditText(applicationContext)
             alert.setView(editText)
             editText.background.clearColorFilter()
@@ -98,12 +91,12 @@ class WorkoutViewActivity : AppCompatActivity() {
                 when {
                     editText.text.toString() == "" -> {
                         val toast =
-                            Toast.makeText(applicationContext, "Insert data please", Toast.LENGTH_SHORT)
+                            Toast.makeText(applicationContext, "Пожалуйста, введите данные", Toast.LENGTH_SHORT)
                         toast.show()
                     }
                     editText.text.toString().length > 30 -> {
                         val toast =
-                            Toast.makeText(applicationContext, "Insert shorter data please", Toast.LENGTH_SHORT)
+                            Toast.makeText(applicationContext, "Пожалуста, введите меньшие данные", Toast.LENGTH_SHORT)
                         toast.show()
                     }
                     else -> {
@@ -112,7 +105,7 @@ class WorkoutViewActivity : AppCompatActivity() {
                     }
                 }
             }
-            alert.setNegativeButton("Cancel", null)
+            alert.setNegativeButton("Отмена", null)
             alert.show()
             return@setOnLongClickListener true
         }
@@ -131,10 +124,6 @@ class WorkoutViewActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-    /**
-     * It starts current workout. And check if workout have exercise
-     */
-
     fun start(view: View) {
         if (exerciseAdapter.mExercise.isNotEmpty()) {
             var startInetnt = Intent(this, StartActivity::class.java)
@@ -142,14 +131,10 @@ class WorkoutViewActivity : AppCompatActivity() {
             startActivity(startInetnt)
         } else {
             val toast =
-                Toast.makeText(applicationContext, "You can't start workout without exercise", Toast.LENGTH_SHORT)
+                Toast.makeText(applicationContext, "Добавьте упражнение, чтобы начать", Toast.LENGTH_SHORT)
             toast.show()
         }
     }
-
-    /**
-     * Delete Workout and Finish activity
-     */
 
     fun deleteWorkout(view: View) {
         if(workoutId >= 80){
@@ -160,11 +145,7 @@ class WorkoutViewActivity : AppCompatActivity() {
             finish()
         }
     }
-
-    /**
-     * Start creator new Exercise
-     */
-
+    //создание новой тренировки
     fun newExercise(view: View) {
         if(workoutId >= 80){
             val toast = Toast.makeText(applicationContext,"Вы не можете редактировать стандартные тренировки",Toast.LENGTH_SHORT)

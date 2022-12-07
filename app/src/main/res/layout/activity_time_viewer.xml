@@ -8,77 +8,91 @@
         tools:context=".viewer.TimeViewerActivity">
 
     <TextView
-        android:id="@+id/textView9"
-        style="@style/TextViewCreator"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Название"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/textView9"
+            style="@style/TextViewCreator"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Название"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAlignment="center" />
+
     <TextView
             android:text="@string/description"
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:textSize="24sp"
             android:layout_marginStart="16dp"
-            app:layout_constraintStart_toStartOf="parent" android:id="@+id/textView10"
-            style="@style/TextViewCreator" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView9"/>
-    <TextView
-            android:text="@string/instruction"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintStart_toStartOf="parent" android:id="@+id/textView11"
-            style="@style/TextViewCreator" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView10"/>
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/textView10"
+            style="@style/TextViewCreator"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            android:textAlignment="center" />
 
     <TextView
-        android:id="@+id/textView12"
-        style="@style/TextViewCreator"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Подходы"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            android:id="@+id/textView12"
+            style="@style/TextViewCreator"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Подходы"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instruction_time_viewer"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center" />
+
     <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/title_time_viewer" app:layout_constraintStart_toEndOf="@+id/textView9"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:id="@+id/title_time_viewer"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView9"
-            style="@style/TextViewCreator"/>
+            style="@style/TextViewCreator"
+            android:textAlignment="center" />
+
     <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/description_time_viewer"
             app:layout_constraintStart_toEndOf="@+id/textView10"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView10"
-            style="@style/TextViewCreator"/>
+            style="@style/TextViewCreator"
+            android:textAlignment="center" />
+
     <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="391dp"
+            android:layout_height="67dp"
             android:id="@+id/instruction_time_viewer"
-            app:layout_constraintStart_toEndOf="@+id/textView11"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView11"
-            style="@style/TextViewCreator"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextViewCreator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            android:layout_marginTop="12dp"
+            android:textAlignment="center" />
+
     <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/series_time_viewer"
             app:layout_constraintStart_toEndOf="@+id/textView12"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView12"
-            style="@style/TextViewCreator"/>
+            style="@style/TextViewCreator"
+            android:textAlignment="center" />
     <Button
             android:text="@string/next"
             android:layout_width="0dp"
@@ -91,18 +105,15 @@
             style="@style/ButtonCreator"/>
 
     <TextView
-        android:id="@+id/textView7"
-        style="@style/TextViewCreator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="345dp"
-        android:text="До конца:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            android:id="@+id/textView7"
+            style="@style/TextViewCreator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Осталось до конца:"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            android:layout_marginTop="156dp" />
 
     <TextView
             android:layout_width="wrap_content"
@@ -113,22 +124,28 @@
             app:layout_constraintEnd_toEndOf="@+id/progressBar"
             app:layout_constraintBottom_toBottomOf="@+id/progressBar"
             app:layout_constraintTop_toTopOf="@+id/progressBar"
-            app:layout_constraintHorizontal_bias="0.487"
-            app:layout_constraintVertical_bias="0.397" />
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintVertical_bias="0.108" />
 
     <ProgressBar
             style="?android:progressBarStyleHorizontal"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="374dp"
+            android:layout_height="115dp"
             android:id="@+id/progressBar"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="160dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="160dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:progressBackgroundTint="@color/colorAccent"
-            app:layout_constraintHorizontal_bias="0.326"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:progressBackgroundTint="@color/colorAccent"
+            app:layout_constraintHorizontal_bias="1.0"
             android:progress="100"
             android:max="100"
-            android:layout_marginStart="24dp" android:layout_marginEnd="16dp" android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"/>
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintVertical_bias="0.0" />
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

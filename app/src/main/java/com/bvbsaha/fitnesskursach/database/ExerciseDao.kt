@@ -61,6 +61,9 @@ interface ExerciseDao {
     @Query("UPDATE exercise_table SET pause=:pause WHERE _id LIKE :ID")
     fun updateExercisePause(pause: Int, ID: Int)
 
+    @Query("UPDATE exercise_table SET done=:done WHERE _id LIKE :ID")
+    fun updateDone(done:Boolean,ID: Int)
+
     @Query("UPDATE exercise_table SET pauseFormat=:pauseFormat WHERE _id LIKE :ID")
     fun updateExercisePauseFormat(pauseFormat: String, ID: Int)
 }

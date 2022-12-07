@@ -11,7 +11,9 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.bvbsaha.fitnesskursach.R
+import com.bvbsaha.fitnesskursach.database.Workout
 import com.bvbsaha.fitnesskursach.menu.MenuActivity
+import com.bvbsaha.fitnesskursach.workout.WorkoutViewActivity
 
 class PauseActivity : AppCompatActivity() {
 
@@ -31,7 +33,7 @@ class PauseActivity : AppCompatActivity() {
         var progresBar: ProgressBar = findViewById(R.id.progressBar2)
         var timeSeconds = intent.getIntExtra(TimeViewerActivity.pause, 0)
         var timeFormat = intent.getStringExtra(TimeViewerActivity.pauseFormat)
-        if (timeFormat != "seconds") {
+        if (timeFormat != "секунды") {
             timeSeconds *= 60
         }
         progresBar.max = timeSeconds
@@ -40,7 +42,7 @@ class PauseActivity : AppCompatActivity() {
         object : CountDownTimer(timeSeconds * 1000.toLong(), 1000) {
 
             override fun onTick(millisUntilFinished: Long) {
-                if (timeFormat == "seconds") {
+                if (timeFormat == "секунды") {
                     time.text = "${millisUntilFinished / 1000} сек"
                 } else {
                     time.text = "${(millisUntilFinished / 60000).toInt()} мин ${millisUntilFinished / 1000 % 60} сек"

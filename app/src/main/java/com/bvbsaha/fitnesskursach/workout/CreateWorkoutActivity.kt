@@ -12,12 +12,7 @@ import com.bvbsaha.fitnesskursach.exercise.CreateExerciseActivity
 import com.bvbsaha.fitnesskursach.database.Workout
 import com.bvbsaha.fitnesskursach.menu.MainActivity
 
-/**
- * It creates new Workout
- * @property titleEditText is EditText where user can put data for new workout
- * @property descriptionEditText is EditText where user can put data for new workout
- * @property ID is address title workout id where new intent put data. And where next activity can find data from this activity. Next activity use ID for create new Exercise to this workout
- */
+//
 //Cоздание новых тренирвок
 
 class CreateWorkoutActivity : AppCompatActivity() {
@@ -35,18 +30,16 @@ class CreateWorkoutActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-    /**
-     * It checks EditTexts not empty and data is too long.
-     * If no it create new intent, put data and start it
-     */
+    //проверка
+    //создание и заполенение интентов
 
     fun next(view: View) {
         if (titleEditText.text.toString() == "" || descriptionEditText.text.toString() == "") {
-            val toast = Toast.makeText(applicationContext, "Insert data please", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(applicationContext, "Поажлуйста, введите данные", Toast.LENGTH_SHORT)
             toast.show()
         } else if (titleEditText.text.toString().length > 30 || descriptionEditText.text.toString().length > 50) {
             val toast =
-                Toast.makeText(applicationContext, "Insert shorter description or title please", Toast.LENGTH_SHORT)
+                Toast.makeText(applicationContext, "Пожалуйста, введите меньшие данные", Toast.LENGTH_SHORT)
             toast.show()
         } else {
             //присваивание id тренировке (кол-во элементов списка +1)
@@ -61,24 +54,19 @@ class CreateWorkoutActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val ID: String = "com.mateusz.workoutcustomer.currentId"
+        const val ID: String = "com.bvbsaha.fitnesskursach.currentId"
     }
 
-    /**
-     * It shows dialog with message "Are you sure you want to exit?"
-     * This dialog have two options
-     * YES retreat
-     * NO do nothing
-     */
+
 
     override fun onBackPressed() {
         AlertDialog.Builder(this)
-            .setTitle("Create Workout")
-            .setMessage("Are you sure you want to exit?")
-            .setPositiveButton("YES") { dialog, which ->
+            .setTitle("Создание тренировки")
+            .setMessage("Вы уверены, что хотите выйти?")
+            .setPositiveButton("ДА") { dialog, which ->
                 super.onBackPressed()
             }
-            .setNegativeButton("NO", null)
+            .setNegativeButton("НЕТ", null)
             .show()
     }
 }

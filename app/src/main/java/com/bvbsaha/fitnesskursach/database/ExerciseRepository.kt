@@ -24,9 +24,7 @@ class ExerciseRepository(private val exerciseDao: ExerciseDao) {
         exerciseDao.deleteAll()
     }
 
-    /**
-     * Delete all element the same workout ID
-     */
+    //удаление по id
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
@@ -34,9 +32,6 @@ class ExerciseRepository(private val exerciseDao: ExerciseDao) {
         exerciseDao.deleteByWorkoutId(id)
     }
 
-    /**
-     * Delete all element the same exercise ID
-     */
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
@@ -103,5 +98,9 @@ class ExerciseRepository(private val exerciseDao: ExerciseDao) {
     suspend fun changeExerciseId(toID: Int, fromID : Int) {
         exerciseDao.changeExerciseID(toID,fromID)
     }
-
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun updateDone(id: Int,done:Boolean){
+        exerciseDao.updateDone(done,id)
+    }
 }

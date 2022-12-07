@@ -7,21 +7,18 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
+import android.view.View
 import com.bvbsaha.fitnesskursach.R
+import com.bvbsaha.fitnesskursach.exercise.CreateExerciseActivity
 import com.bvbsaha.fitnesskursach.workout.CreateWorkoutActivity
 import com.bvbsaha.fitnesskursach.weather.WeatherFragment
 import com.bvbsaha.fitnesskursach.workout.WorkoutFragment
 
-/**
- * A class MenuActivity is Main Activity in App
- */
 
 
 class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
-    /**
-     * Function onNavigationItemSelected change fragments when user chosen option on BottomNavigationView
-     */
+   //меняет фрагмент в зависимости от выбора
 
     lateinit var fab: FloatingActionButton
     private val newWorkoutActivityRequestCode = 1
@@ -52,14 +49,6 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         return loadFragment(fragment)
     }
 
-    /**
-     * Function onCreate evokes when class MenuActivity are creates.
-     * It sets layout activity_menu
-     * It evokes function loadFragment because set default fragment
-     * Next create variable navigation and changes it into BottomNavigationView from layout
-     * The last set listener for BottomNavigationView
-     */
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
@@ -69,7 +58,7 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         fab.hide()
         fab.setOnClickListener {
             if (fragment is WorkoutFragment) {
-                var creatorIntent: Intent = Intent(this, CreateWorkoutActivity::class.java)
+                var creatorIntent: Intent = Intent(this, CreateExerciseActivity::class.java)
                 startActivityForResult(creatorIntent, newWorkoutActivityRequestCode)
             }
         }
@@ -79,9 +68,7 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     }
 
 
-    /**
-     * Function loadFragment start new Fragment in the part of the Layout
-     */
+    //запускает фрагмент в части лайаута
 
    private fun loadFragment(fragment: Fragment?): Boolean {
         if (fragment != null) {

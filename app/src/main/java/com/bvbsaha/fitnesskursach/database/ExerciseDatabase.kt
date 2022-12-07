@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 //Абстрактный класс для создания и открытия бд
 
-@Database(entities = arrayOf(Exercise::class), version = 1)
+@Database(entities = arrayOf(Exercise::class), version = 2)
 abstract class ExerciseDatabase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao

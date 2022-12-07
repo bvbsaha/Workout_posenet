@@ -34,14 +34,14 @@
             android:layout_width="0dp" android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@+id/button2" android:layout_marginEnd="8dp">
         <Button
-                android:text="@string/start"
+                android:text="Начать"
                 android:id="@+id/start_activity"
                 android:onClick="start"
                 style="@style/ButtonCreator"
                 android:layout_weight=".5"
                 android:layout_marginEnd="8dp"/>
         <Button
-                android:text="@string/delete"
+                android:text="Удалить"
                 android:id="@+id/button5"
                 style="@style/ButtonCreator"
                 android:layout_weight=".5"

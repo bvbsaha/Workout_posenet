@@ -13,19 +13,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.menu.MainActivity
 
-/**
- * This shows data about selected exercise
- * @property id is current exercise id
- * @author Mateusz Karłowski
- */
+//информация о выбранном упражнении
 
 class ExerciseViewActivity : AppCompatActivity() {
 
     var id: Int = 0
-
-    /**
-     * It finds exercise by id in database. And show data about this exercise on TextView.
-     */
 
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +27,7 @@ class ExerciseViewActivity : AppCompatActivity() {
             ExerciseAdapter.ID, 0))
         var title: TextView = findViewById(R.id.exerciseTitle)
         title.text = exercise.title
+
         title.setOnLongClickListener{
             var alert : AlertDialog.Builder = AlertDialog.Builder(this)
             alert.setTitle("Введите новое название упржанения")
@@ -65,10 +58,9 @@ class ExerciseViewActivity : AppCompatActivity() {
             return@setOnLongClickListener true
         }
 
-
-
         var description : TextView = findViewById(R.id.descriptionExercise)
         description.text = exercise.description
+
         description.setOnLongClickListener{
             var alert : AlertDialog.Builder = AlertDialog.Builder(this)
             alert.setTitle("Введите новое описание")
@@ -98,8 +90,10 @@ class ExerciseViewActivity : AppCompatActivity() {
             alert.show()
             return@setOnLongClickListener true
         }
+
         var instruction : TextView = findViewById(R.id.instructionExercise)
         instruction.text = exercise.instruction
+
         instruction.setOnLongClickListener{
             var alert : AlertDialog.Builder = AlertDialog.Builder(this)
             alert.setTitle("Введите новую инструкцию")
@@ -124,8 +118,10 @@ class ExerciseViewActivity : AppCompatActivity() {
             alert.show()
             return@setOnLongClickListener true
         }
+
         var series : TextView = findViewById(R.id.seriesExercise)
         series.text = exercise.series.toString()
+
         series.setOnLongClickListener{
             var alert : AlertDialog.Builder = AlertDialog.Builder(this)
             alert.setTitle("Введите новое количество подходов")
@@ -159,7 +155,7 @@ class ExerciseViewActivity : AppCompatActivity() {
         var timeOrRepat : TextView = findViewById(R.id.timeOrRepeatOutput)
         if (exercise.timeCheck) {
             var tmp2: TextView = findViewById(R.id.timeOrRepeat)
-            tmp2.text = "Time: "
+            tmp2.text = "Время: "
             timeOrRepat.text = "${exercise.time} ${exercise.timeFormat}"
             timeOrRepat.setOnLongClickListener{
                 var alert : AlertDialog.Builder = AlertDialog.Builder(this)
@@ -178,7 +174,7 @@ class ExerciseViewActivity : AppCompatActivity() {
                         }
                         editText.text.toString().length > 30 -> {
                             val toast =
-                                Toast.makeText(applicationContext, "Пожалуйста, введите данные", Toast.LENGTH_SHORT)
+                                Toast.makeText(applicationContext, "Пожалуйста, введите данные меньше", Toast.LENGTH_SHORT)
                             toast.show()
                         }
                         else -> {
@@ -187,14 +183,15 @@ class ExerciseViewActivity : AppCompatActivity() {
                         }
                     }
                 }
-                alert.setNegativeButton("Cancel", null)
+                alert.setNegativeButton("Отмена", null)
                 alert.show()
                 return@setOnLongClickListener true
             }
         } else {
             var tmp2: TextView = findViewById(R.id.timeOrRepeat)
-            tmp2.text = "Repeat: "
+            tmp2.text = "Повторения: "
             timeOrRepat.text = exercise.repeat.toString()
+
             timeOrRepat.setOnLongClickListener{
                 var alert : AlertDialog.Builder = AlertDialog.Builder(this)
                 alert.setTitle("Введите новое количество повторений")
@@ -207,12 +204,12 @@ class ExerciseViewActivity : AppCompatActivity() {
                     when {
                         editText.text.toString() == "" -> {
                             val toast =
-                                Toast.makeText(applicationContext, "Insert data please", Toast.LENGTH_SHORT)
+                                Toast.makeText(applicationContext, "Пожалуйста, введите данные", Toast.LENGTH_SHORT)
                             toast.show()
                         }
                         editText.text.toString().length > 30 -> {
                             val toast =
-                                Toast.makeText(applicationContext, "Insert shorter data please", Toast.LENGTH_SHORT)
+                                Toast.makeText(applicationContext, "IПожалуйста, введите данные меньше", Toast.LENGTH_SHORT)
                             toast.show()
                         }
                         else -> {
@@ -221,12 +218,11 @@ class ExerciseViewActivity : AppCompatActivity() {
                         }
                     }
                 }
-                alert.setNegativeButton("Cancel", null)
+                alert.setNegativeButton("Отмена", null)
                 alert.show()
                 return@setOnLongClickListener true
             }
         }
-
 
 
         var pause : TextView = findViewById(R.id.pauseExercise)
@@ -243,12 +239,12 @@ class ExerciseViewActivity : AppCompatActivity() {
                 when {
                     editText.text.toString() == "" -> {
                         val toast =
-                            Toast.makeText(applicationContext, "Insert data please", Toast.LENGTH_SHORT)
+                            Toast.makeText(applicationContext, "Пожалуйста, введите данные", Toast.LENGTH_SHORT)
                         toast.show()
                     }
                     editText.text.toString().length > 30 -> {
                         val toast =
-                            Toast.makeText(applicationContext, "Insert shorter data please", Toast.LENGTH_SHORT)
+                            Toast.makeText(applicationContext, "Пожалуйста, введите данные меньше", Toast.LENGTH_SHORT)
                         toast.show()
                     }
                     else -> {
@@ -257,7 +253,7 @@ class ExerciseViewActivity : AppCompatActivity() {
                     }
                 }
             }
-            alert.setNegativeButton("Cancel", null)
+            alert.setNegativeButton("Отмена", null)
             alert.show()
             return@setOnLongClickListener true
         }
@@ -265,9 +261,6 @@ class ExerciseViewActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-    /**
-     * This function delete Exercise by ID
-     */
 
     fun deleteExercise(view: View) {
         MainActivity.workoutViewModel.deleteExerciseById(id)

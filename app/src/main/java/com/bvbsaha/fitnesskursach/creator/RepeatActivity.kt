@@ -19,13 +19,7 @@ import com.bvbsaha.fitnesskursach.viewer.StartActivity
 import com.bvbsaha.fitnesskursach.workout.CreateWorkoutActivity
 
 //Класс для создания упражнений по числу повторений
-/**
- * RepeatActivity is creator repeat exercise
- * @property series is EditText where user put series number new exercise
- * @property repeat is EditText where user put repeat number new exercise
- * @property pause is EditText where user put pause number new exercise
- * @property spinner is EditText where user choose pause formats new exercise
- */
+
 
 class RepeatActivity : AppCompatActivity() {
 
@@ -61,10 +55,6 @@ class RepeatActivity : AppCompatActivity() {
 
 
 
-    /**
-     * check EditText is not empty, evokes add and finish activity
-     */
-
     fun finishRepeat(view: View) {
         if (series.text.toString() == "" || repeat.text.toString() == "" || pause.text.toString() == "") {
             val toast = Toast.makeText(applicationContext, "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT)
@@ -75,8 +65,8 @@ class RepeatActivity : AppCompatActivity() {
         }
         else if (series.text.toString().toInt() > 99 ||
             repeat.text.toString().toInt() > 10000 ||
-            (pause.text.toString().toInt() > 6000 && spinner.selectedItem == "seconds") ||
-            (pause.text.toString().toInt() > 99 && spinner.selectedItem == "minutes")
+            (pause.text.toString().toInt() > 6000 && spinner.selectedItem == "секунды") ||
+            (pause.text.toString().toInt() > 99 && spinner.selectedItem == "минуты")
         ) {
             val toast = Toast.makeText(applicationContext, "Пожалуйста, введите меньшие значения", Toast.LENGTH_SHORT)
             toast.show()
@@ -106,26 +96,22 @@ class RepeatActivity : AppCompatActivity() {
                 "",
                 repeat.text.toString().toInt(),
                 pause.text.toString().toInt(),
-                spinner.selectedItem.toString()
+                spinner.selectedItem.toString(),
+                false
+
             )
         )
     }
 
-    /**
-     * It shows dialog window with message "Are you sure you want to not save this exercise?"
-     * It has 2 options:
-     * YES back to MenuActivity
-     * NO do nothing
-     */
 
     override fun onBackPressed() {
         AlertDialog.Builder(this)
-            .setTitle("Create Exercise")
-            .setMessage("Are you sure you want to not save this exercise?")
-            .setPositiveButton("YES") { dialog, which ->
+            .setTitle("Создание Упражнения")
+            .setMessage("Вы уверены, что хотите выйти, не сохранив упражнение?")
+            .setPositiveButton("ДА") { dialog, which ->
                 super.onBackPressed()
             }
-            .setNegativeButton("NO", null)
+            .setNegativeButton("НЕТ", null)
             .show()
     }
 }
