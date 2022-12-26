@@ -1,7 +1,6 @@
-package com.bvbsaha.fitnesskursach.menu
+package com.bvbsaha.fitnesskursach.Fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

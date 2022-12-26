@@ -1,4 +1,4 @@
-package com.bvbsaha.fitnesskursach.workout
+package com.bvbsaha.fitnesskursach.Fragment
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.database.WorkoutViewModel
 import com.bvbsaha.fitnesskursach.menu.MainActivity
-import kotlinx.android.synthetic.main.workout_item.*
+import com.bvbsaha.fitnesskursach.workout.WorkoutAdapter
 
 
 class WorkoutFragment : Fragment() {

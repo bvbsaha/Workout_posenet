@@ -2,18 +2,17 @@ package com.bvbsaha.fitnesskursach.menu
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import androidx.fragment.app.Fragment
-import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
-import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.bvbsaha.fitnesskursach.Fragment.BmiFragment
+import com.bvbsaha.fitnesskursach.Fragment.WeatherFragment
+import com.bvbsaha.fitnesskursach.Fragment.WorkoutFragment
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.exercise.CreateExerciseActivity
 import com.bvbsaha.fitnesskursach.workout.CreateWorkoutActivity
-import com.bvbsaha.fitnesskursach.weather.WeatherFragment
-import com.bvbsaha.fitnesskursach.workout.WorkoutFragment
-
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {

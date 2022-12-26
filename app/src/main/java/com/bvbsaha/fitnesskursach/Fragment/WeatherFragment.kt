@@ -1,4 +1,4 @@
-package com.bvbsaha.fitnesskursach.weather
+package com.bvbsaha.fitnesskursach.Fragment
 
 import android.os.Bundle
 import android.util.Log

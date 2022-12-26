@@ -1,9 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
-
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin:  'com.google.gms.google-services'
 
 android {
     compileSdkVersion 32
@@ -35,7 +36,14 @@ android {
 }
 
 dependencies {
+
     implementation project(":posenet")
+
+    implementation platform('com.google.firebase:firebase-bom:30.4.1')
+    implementation 'com.google.firebase:firebase-database-ktx'
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.squareup.picasso:picasso:2.8'
     implementation 'com.android.volley:volley:1.2.1'
     implementation 'com.google.android.gms:play-services-location:21.0.1'
