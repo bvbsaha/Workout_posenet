@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "551882765207",
+    "project_id": "workoutcustomer-master",
+    "storage_bucket": "workoutcustomer-master.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551882765207:android:fe2fed92538e87ed83cad2",
+        "android_client_info": {
+          "package_name": "com.bvbsaha.fitnesskursach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "551882765207-gi6u9fhgvvifg05e8kofhm5nkev4u0f4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC45RTp6ZSoM3pnEFvcubu85V1joZzLuso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "551882765207-gi6u9fhgvvifg05e8kofhm5nkev4u0f4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
