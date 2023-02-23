@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.miguelrochefort.fitnesscamera
+package com.bvbsaha.fitnesskursach.posenet
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -22,10 +22,11 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.v4.content.res.ResourcesCompat
-import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
-import com.miguelrochefort.fitnesscamera.lib.Posenet as Posenet
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
+import com.bvbsaha.fitnesskursach.R
+import com.miguelrochefort.fitnesscamera.lib.Posenet
 
 class TestActivity : AppCompatActivity() {
   /** Returns a resized bitmap of the drawable image.    */

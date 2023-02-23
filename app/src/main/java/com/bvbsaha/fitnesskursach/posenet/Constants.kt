@@ -16,7 +16,7 @@
 
 @file:JvmName("Constants")
 
-package com.miguelrochefort.fitnesscamera
+package com.bvbsaha.fitnesskursach.posenet
 
 /** Request camera and external storage permission.   */
 const val REQUEST_CAMERA_PERMISSION = 1

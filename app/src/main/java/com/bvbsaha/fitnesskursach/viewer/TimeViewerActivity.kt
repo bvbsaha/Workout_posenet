@@ -10,7 +10,7 @@ import android.view.View
 import android.widget.TextView
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.database.Exercise
-import kotlinx.android.synthetic.main.activity_start.*
+import kotlinx.android.synthetic.main.activity_time_viewer.*
 
 /**
  * It see exercise with time

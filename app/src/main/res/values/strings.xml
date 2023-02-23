@@ -7,6 +7,9 @@
         <item>Scala</item>
         <item>Perl</item>
     </string-array>
+    <string name="tfe_pn_app_name">Fitness Camera</string>
+    <string name="tfe_pn_request_permission">This app needs camera permission.</string>
+    <string name="tfe_pn_camera_error">This device doesn\'t support Camera2 API.</string>
     <string name="app_name">Training supporter</string>
     <string name="name">Training supporter</string>
     <string name="logo">logo</string>

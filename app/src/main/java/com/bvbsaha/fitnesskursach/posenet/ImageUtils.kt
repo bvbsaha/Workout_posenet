@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package com.miguelrochefort.fitnesscamera
+package com.bvbsaha.fitnesskursach.posenet
 
 /** Utility class for manipulating images.  */
 object ImageUtils {

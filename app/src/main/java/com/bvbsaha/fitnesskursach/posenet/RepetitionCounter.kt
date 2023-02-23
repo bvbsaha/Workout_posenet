@@ -1,4 +1,4 @@
-package com.miguelrochefort.fitnesscamera
+package com.bvbsaha.fitnesskursach.posenet
 
 import android.content.Context
 import android.speech.tts.TextToSpeech

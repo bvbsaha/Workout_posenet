@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
-package com.miguelrochefort.fitnesscamera
+package com.bvbsaha.fitnesskursach.posenet
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.bvbsaha.fitnesskursach.R
+import com.bvbsaha.fitnesskursach.posenet.PosenetActivity
 
 class CameraActivity : AppCompatActivity() {
 

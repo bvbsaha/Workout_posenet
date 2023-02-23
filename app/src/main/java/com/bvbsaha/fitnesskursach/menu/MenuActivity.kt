@@ -2,15 +2,16 @@ package com.bvbsaha.fitnesskursach.menu
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.bvbsaha.fitnesskursach.R
+import com.bvbsaha.fitnesskursach.posenet.PosenetActivity
+import com.bvbsaha.fitnesskursach.weather.WeatherFragment
+import com.bvbsaha.fitnesskursach.workout.CreateWorkoutActivity
+import com.bvbsaha.fitnesskursach.workout.WorkoutFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import androidx.fragment.app.Fragment
-import androidx.appcompat.app.AppCompatActivity
-import android.view.MenuItem
-import com.bvbsaha.fitnesskursach.R
-import com.bvbsaha.fitnesskursach.workout.CreateWorkoutActivity
-import com.bvbsaha.fitnesskursach.weather.WeatherFragment
-import com.bvbsaha.fitnesskursach.workout.WorkoutFragment
 
 /**
  * A class MenuActivity is Main Activity in App
@@ -43,8 +44,9 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 fab.hide()
             }
             else -> {
-                var creatorIntent: Intent = Intent(this, CreateWorkoutActivity::class.java)
-                startActivityForResult(creatorIntent, newWorkoutActivityRequestCode)
+                fragment = PosenetActivity()
+               // var creatorIntent: Intent = Intent(this, CreateWorkoutActivity::class.java)
+                //startActivityForResult(creatorIntent, newWorkoutActivityRequestCode)
                 fab.hide()
 
             }

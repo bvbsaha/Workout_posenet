@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.miguelrochefort.fitnesscamera
+package com.bvbsaha.fitnesskursach.posenet
 
 import android.Manifest
 import android.app.AlertDialog
@@ -23,22 +23,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Resources
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.ImageFormat
-import android.graphics.Matrix
-import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.Rect
-import android.hardware.camera2.CameraAccessException
-import android.hardware.camera2.CameraCaptureSession
-import android.hardware.camera2.CameraCharacteristics
-import android.hardware.camera2.CameraDevice
-import android.hardware.camera2.CameraManager
-import android.hardware.camera2.CaptureRequest
-import android.hardware.camera2.CaptureResult
-import android.hardware.camera2.TotalCaptureResult
+import android.graphics.*
+import android.hardware.camera2.*
 import android.media.Image
 import android.media.ImageReader
 import android.media.ImageReader.OnImageAvailableListener
@@ -46,30 +32,25 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
-import android.support.v4.app.ActivityCompat
-import android.support.v4.app.DialogFragment
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.util.Size
 import android.util.SparseIntArray
-import android.view.LayoutInflater
-import android.view.Surface
-import android.view.SurfaceHolder
-import android.view.SurfaceView
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import android.widget.Toast
-import java.util.concurrent.Semaphore
-import java.util.concurrent.TimeUnit
-import kotlin.math.abs
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
+import com.bvbsaha.fitnesskursach.R
 import com.miguelrochefort.fitnesscamera.lib.BodyPart
 import com.miguelrochefort.fitnesscamera.lib.Person
 import com.miguelrochefort.fitnesscamera.lib.Posenet
 import java.net.URLEncoder
+import java.util.concurrent.Semaphore
+import java.util.concurrent.TimeUnit
+import kotlin.math.abs
 
 class PosenetActivity : Fragment(), ActivityCompat.OnRequestPermissionsResultCallback {
 
@@ -233,7 +214,7 @@ class PosenetActivity : Fragment(), ActivityCompat.OnRequestPermissionsResultCal
     recyclerView = view.findViewById(R.id.recyclerView)
     surfaceView = view.findViewById(R.id.surfaceView)
     surfaceHolder = surfaceView!!.holder
-    counter = RepetitionCounter(this.context!!)
+    counter = RepetitionCounter(this.requireContext())
 
     textView?.setOnClickListener { view ->
       val reps = counter!!.count
@@ -256,7 +237,7 @@ class PosenetActivity : Fragment(), ActivityCompat.OnRequestPermissionsResultCal
   override fun onStart() {
     super.onStart()
     openCamera()
-    posenet = Posenet(this.context!!)
+    posenet = Posenet(this.requireContext())
   }
 
   override fun onPause() {
@@ -364,12 +345,12 @@ class PosenetActivity : Fragment(), ActivityCompat.OnRequestPermissionsResultCal
    * Opens the camera specified by [PosenetActivity.cameraId].
    */
   private fun openCamera() {
-    val permissionCamera = ContextCompat.checkSelfPermission(activity!!, Manifest.permission.CAMERA)
+    val permissionCamera = ContextCompat.checkSelfPermission(requireActivity(), Manifest.permission.CAMERA)
     if (permissionCamera != PackageManager.PERMISSION_GRANTED) {
       requestCameraPermission()
     }
     setUpCameraOutputs()
-    val manager = activity!!.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+    val manager = requireActivity().getSystemService(Context.CAMERA_SERVICE) as CameraManager
     try {
       // Wait for camera to open - 2.5 seconds is sufficient
       if (!cameraOpenCloseLock.tryAcquire(1000, TimeUnit.MILLISECONDS)) {
@@ -635,7 +616,7 @@ class PosenetActivity : Fragment(), ActivityCompat.OnRequestPermissionsResultCal
     person = swapBodyParts(person)
     val canvas: Canvas = surfaceHolder!!.lockCanvas()
     val count = counter!!.OnFrame(person)
-    this.activity!!.runOnUiThread{
+    this.requireActivity().runOnUiThread{
         textView!!.text = (count).toString()
     }
     draw(canvas, person, scaledBitmap)
@@ -746,8 +727,8 @@ class PosenetActivity : Fragment(), ActivityCompat.OnRequestPermissionsResultCal
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
       AlertDialog.Builder(activity)
-        .setMessage(arguments!!.getString(ARG_MESSAGE))
-        .setPositiveButton(android.R.string.ok) { _, _ -> activity!!.finish() }
+        .setMessage(requireArguments().getString(ARG_MESSAGE))
+        .setPositiveButton(android.R.string.ok) { _, _ -> requireActivity().finish() }
         .create()
 
     companion object {
