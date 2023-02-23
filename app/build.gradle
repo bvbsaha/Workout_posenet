@@ -40,7 +40,8 @@ android {
 dependencies {
 
     implementation project(":posenet")
-
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
     implementation platform('com.google.firebase:firebase-bom:30.4.1')
     implementation 'com.google.firebase:firebase-database-ktx'
     implementation "com.google.dagger:hilt-android:$hilt_version"

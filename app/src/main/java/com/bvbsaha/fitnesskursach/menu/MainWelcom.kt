@@ -5,21 +5,31 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.database.Exercise
 import com.bvbsaha.fitnesskursach.database.Workout
 import com.bvbsaha.fitnesskursach.database.WorkoutViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var navController: NavController
+
 
     //создание workouviewmodel и чтение данных из бд
     //задержа на 7 секуд
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_welcom)
         supportActionBar?.hide()
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
         workoutViewModel = ViewModelProviders.of(this).get(WorkoutViewModel::class.java)
         Handler().postDelayed({
             val homeIntent = Intent(this@MainActivity, MenuActivity::class.java)

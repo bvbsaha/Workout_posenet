@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.databinding.ItemLeaderBoardBinding
+import com.bvbsaha.fitnesskursach.domain.PlayerModel
 
 class LeaderBoardAdapter :
     ListAdapter<PlayerModel, LeaderBoardAdapter.LeaderBoardViewHolder>(DiffCallback()) {

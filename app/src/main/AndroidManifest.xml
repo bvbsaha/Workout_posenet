@@ -10,7 +10,7 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
-
+            android:name=".WorkoutCustomerApplication"
             android:allowBackup="true"
             android:icon="@drawable/ic_baseline_sports_gymnastics_24"
             android:label="@string/app_name"
@@ -40,7 +40,8 @@
         </activity>
         <activity android:name="com.bvbsaha.fitnesskursach.menu.MenuActivity">
         </activity>
-        <activity android:name="com.bvbsaha.fitnesskursach.menu.MainActivity"
+        <activity
+                android:name="com.bvbsaha.fitnesskursach.menu.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

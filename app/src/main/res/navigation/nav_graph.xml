@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.perpetio.squat.challenge.view.fragment.WelcomeFragment"
+        android:name="com.bvbsaha.fitnesskursach.Fragment.WelcomeFragment"
         android:label="WelcomeFragment" >
         <action
             android:id="@+id/action_welcomeFragment_to_userNameFragment"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/userNameFragment"
-        android:name="com.perpetio.squat.challenge.view.fragment.UserNameFragment"
+        android:name="com.bvbsaha.fitnesskursach.Fragment.UserNameFragment"
         android:label="UserNameFragment" >
         <action
             android:id="@+id/action_userNameFragment_to_exercisesFragment"
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/leaderBoardFragment"
-        android:name="com.perpetio.squat.challenge.view.fragment.LeaderBoardFragment"
+        android:name="com.bvbsaha.fitnesskursach.Fragment.LeaderBoardFragment"
         android:label="LeaderBoard" >
         <action
             app:popUpTo="@id/welcomeFragment"
@@ -34,7 +34,7 @@
     <action android:id="@+id/action_global_leaderBoardFragment" app:destination="@id/leaderBoardFragment" />
     <fragment
         android:id="@+id/challengeFragment"
-        android:name="com.perpetio.squat.challenge.view.fragment.ChallengeFragment"
+        android:name="com.bvbsaha.fitnesskursach.Fragment.ChallengeFragment"
         android:label="ChallengeFragment" >
         <action
             android:id="@+id/action_challengeFragment_to_resultFragment"
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.perpetio.squat.challenge.view.fragment.ResultFragment"
+        android:name="com.bvbsaha.fitnesskursach.Fragment.ResultFragment"
         android:label="ResultFragment" >
         <action
             app:popUpTo="@id/welcomeFragment"
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/exercisesFragment"
-        android:name="com.perpetio.squat.challenge.view.fragment.ExercisesFragment"
+        android:name="com.bvbsaha.fitnesskursach.Fragment.ExercisesFragment"
         android:label="ExercisesFragment" >
         <action
             android:id="@+id/action_exercisesFragment_to_challengeFragment"
@@ -60,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.perpetio.squat.challenge.view.fragment.SigninFragment"
+        android:name="com.bvbsaha.fitnesskursach.Fragment.ResultFragment"
         android:label="loginFragment">
         <action
             android:id="@+id/action_LoginFragment_to_welcomeFragment2"

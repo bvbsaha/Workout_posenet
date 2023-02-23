@@ -1,6 +1,8 @@
 package com.bvbsaha.fitnesskursach.model
 
 import androidx.lifecycle.*
+import com.bvbsaha.fitnesskursach.domain.LeaderBoardUseCase
+import com.bvbsaha.fitnesskursach.domain.PlayerModel
 import com.bvbsaha.fitnesskursach.util.ChallengeEnum
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

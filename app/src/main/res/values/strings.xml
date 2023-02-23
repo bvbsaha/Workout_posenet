@@ -7,6 +7,7 @@
         <item>Scala</item>
         <item>Perl</item>
     </string-array>
+    <string name="user_name_fragment_next_btn">Next</string>
     <string name="app_name">Training supporter</string>
     <string name="name">Training supporter</string>
     <string name="logo">logo</string>
@@ -48,8 +49,15 @@
     <string name="delete_exercise">Delete Exercise</string>
     <string name="pause2">Pause :</string>
     <string name="time2">Time :</string>
-    <string name="challenge_fragment_default_time">01:00</string>
+
     <string name="next_exercise">Next exercise:</string>
+    <string name="user_name_fragment_title">Как вас зовут?</string>
+    <string name="user_name_fragment_input_hint">]Введите имя</string>
+    <string name="challenge_fragment_default_time">01:00</string>
+    <string name="result_fragment_squats">Squats</string>
+    <string name="leaderboard_fragment_title">Leaderboard</string>
+    <string name="btn_home_go_to_home">Go home</string>
+
     <string-array name="time_formats">
         <item>секунды</item>
         <item>минуты</item>
@@ -153,4 +161,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Search" />
     <string name="tfe_pn_request_permission">request</string>
+    <string name="fragment_exercises_select_challenge" />
+    <string name="welcome_fragment_title">Privet</string>
+    <string name="welcome_fragment_start_btn">Darova</string>
+    <string name="welcome_fragment_leaderboard_btn">Privet</string>
 </resources>

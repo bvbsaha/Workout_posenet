@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.bvbsaha.fitnesskursach.Fragment.BmiFragment
-import com.bvbsaha.fitnesskursach.Fragment.WeatherFragment
-import com.bvbsaha.fitnesskursach.Fragment.WorkoutFragment
+import com.bvbsaha.fitnesskursach.Fragment.*
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.exercise.CreateExerciseActivity
 import com.bvbsaha.fitnesskursach.workout.CreateWorkoutActivity
@@ -39,8 +37,7 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 fab.hide()
             }
             else -> {
-                var creatorIntent: Intent = Intent(this, CreateWorkoutActivity::class.java)
-                startActivityForResult(creatorIntent, newWorkoutActivityRequestCode)
+              fragment = ChallengeFragment()
                 fab.hide()
 
             }

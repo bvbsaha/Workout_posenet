@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:src="@drawable/ic_back_purple"
+        android:src="@color/card_Blue_bg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,7 +22,7 @@
         android:fontFamily="@font/ubuntu_regular"
         android:gravity="center"
         android:text="@string/fragment_exercises_select_challenge"
-        android:textColor="@color/purple_main"
+        android:textColor="@color/card_Blue_bg"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/exercise_spinner"

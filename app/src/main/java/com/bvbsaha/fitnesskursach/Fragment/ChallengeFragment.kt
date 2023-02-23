@@ -21,7 +21,9 @@ import com.bvbsaha.fitnesskursach.model.ChallengeViewModel
 import com.bvbsaha.fitnesskursach.util.ChallengeRepetitionCounter
 import com.bvbsaha.fitnesskursach.util.VisualizationUtils.MODEL_HEIGHT
 import com.bvbsaha.fitnesskursach.util.VisualizationUtils.MODEL_WIDTH
+import com.bvbsaha.fitnesskursach.camera.CameraSource
 import com.bvbsaha.fitnesskursach.dialog.ErrorDialog
+import dagger.hilt.android.AndroidEntryPoint
 import org.tensorflow.lite.examples.posenet.lib.BodyPart
 import org.tensorflow.lite.examples.posenet.lib.Person
 import org.tensorflow.lite.examples.posenet.lib.Posenet
