@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package com.perpetio.squat.challenge.util
+package com.bvbsaha.fitnesskursach.util
 
 /** Utility class for manipulating images.  */
 object VisualizationUtils {

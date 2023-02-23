@@ -1,4 +1,4 @@
-package com.perpetio.squat.challenge.view.camera
+package com.bvbsaha.fitnesskursach.camera
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -13,9 +13,9 @@ import android.os.HandlerThread
 import android.util.Log
 import android.util.Size
 import android.view.SurfaceView
-import com.perpetio.squat.challenge.util.VisualizationUtils
-import com.perpetio.squat.challenge.util.VisualizationUtils.MODEL_HEIGHT
-import com.perpetio.squat.challenge.util.VisualizationUtils.MODEL_WIDTH
+import com.bvbsaha.fitnesskursach.util.VisualizationUtils
+import com.bvbsaha.fitnesskursach.util.VisualizationUtils.MODEL_HEIGHT
+import com.bvbsaha.fitnesskursach.util.VisualizationUtils.MODEL_WIDTH
 import java.util.concurrent.Semaphore
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs

@@ -1,7 +1,7 @@
-package com.perpetio.squat.challenge.model
+package com.bvbsaha.fitnesskursach.model
 
-import com.perpetio.squat.challenge.model.repository.LeaderBoardFirebaseRepoImpl
-import com.perpetio.squat.challenge.model.repository.LeaderBoardRepo
+import com.bvbsaha.fitnesskursach.model.repository.LeaderBoardFirebaseRepoImpl
+import com.bvbsaha.fitnesskursach.model.repository.LeaderBoardRepo
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

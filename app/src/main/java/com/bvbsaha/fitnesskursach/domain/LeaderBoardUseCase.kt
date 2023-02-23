@@ -1,7 +1,7 @@
-package com.perpetio.squat.challenge.domain
+package com.bvbsaha.fitnesskursach.domain
 
 import androidx.lifecycle.LiveData
-import com.perpetio.squat.challenge.model.repository.LeaderBoardRepo
+import com.bvbsaha.fitnesskursach.model.repository.LeaderBoardRepo
 import javax.inject.Inject
 
 class LeaderBoardUseCase @Inject constructor(private val firebaseRepo: LeaderBoardRepo) {

@@ -1,6 +1,6 @@
-package com.perpetio.squat.challenge.util
+package com.bvbsaha.fitnesskursach.util
 
-enum class ChallengeEnum(val challengeName: String) {
+enum class ChallengeEnum(val challengeName: String = "Squatting") {
 
     SQUAT("Squatting");
 

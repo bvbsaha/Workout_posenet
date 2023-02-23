@@ -1,4 +1,4 @@
-package com.perpetio.squat.challenge.view.dialog
+package com.bvbsaha.fitnesskursach.dialog
 
 import android.app.AlertDialog
 import android.app.Dialog

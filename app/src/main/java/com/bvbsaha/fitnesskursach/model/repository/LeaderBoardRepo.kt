@@ -1,7 +1,6 @@
-package com.perpetio.squat.challenge.model.repository
+package com.bvbsaha.fitnesskursach.model.repository
 
 import androidx.lifecycle.LiveData
-import com.perpetio.squat.challenge.domain.PlayerModel
 
 interface LeaderBoardRepo {
 

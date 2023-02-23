@@ -17,16 +17,14 @@ import androidx.fragment.app.activityViewModels
 //import androidx.navigation.fragment.findNavController
 import com.bvbsaha.fitnesskursach.R
 import com.bvbsaha.fitnesskursach.databinding.FragmentChallengeBinding
-import com.perpetio.squat.challenge.model.ChallengeViewModel
-import com.perpetio.squat.challenge.util.ChallengeRepetitionCounter
-import com.perpetio.squat.challenge.util.VisualizationUtils.MODEL_HEIGHT
-import com.perpetio.squat.challenge.util.VisualizationUtils.MODEL_WIDTH
-import com.perpetio.squat.challenge.view.camera.CameraSource
-import com.perpetio.squat.challenge.view.dialog.ErrorDialog
+import com.bvbsaha.fitnesskursach.model.ChallengeViewModel
+import com.bvbsaha.fitnesskursach.util.ChallengeRepetitionCounter
+import com.bvbsaha.fitnesskursach.util.VisualizationUtils.MODEL_HEIGHT
+import com.bvbsaha.fitnesskursach.util.VisualizationUtils.MODEL_WIDTH
+import com.bvbsaha.fitnesskursach.dialog.ErrorDialog
 import org.tensorflow.lite.examples.posenet.lib.BodyPart
 import org.tensorflow.lite.examples.posenet.lib.Person
 import org.tensorflow.lite.examples.posenet.lib.Posenet
-
 class ChallengeFragment : Fragment() {
 
     private val countingToStartInMilliseconds: Long = 3000
@@ -69,7 +67,7 @@ class ChallengeFragment : Fragment() {
         surfaceView = binding?.surfaceView
         textToSpeech = TextToSpeech(requireContext()) {}
         counter = ChallengeRepetitionCounter(
-            sharedViewModel.type.value,
+           "Squatting",
 
             )
         startStopBtn?.setOnClickListener {
@@ -144,7 +142,7 @@ class ChallengeFragment : Fragment() {
                 startTimerCount = 0
                 counter!!.changeTurnState()
                 //findNavController().navigate(R.id.action_challengeFragment_to_resultFragment)
-                sharedViewModel.addScoreToLeaderBoardList()
+
             }
 
             override fun onTick(tickTime: Long) {

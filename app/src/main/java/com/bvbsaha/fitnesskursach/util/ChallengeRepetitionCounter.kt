@@ -1,4 +1,4 @@
-package com.perpetio.squat.challenge.util
+package com.bvbsaha.fitnesskursach.util
 
 import org.tensorflow.lite.examples.posenet.lib.BodyPart
 import org.tensorflow.lite.examples.posenet.lib.Person
@@ -7,7 +7,7 @@ import org.tensorflow.lite.examples.posenet.lib.Person
 class ChallengeRepetitionCounter(
     private val activityType: String?,
 
-) {
+    ) {
 
     val MIN_AMPLITUDE = 40
     val REP_THRESHOLD = 0.8
